@@ -16,10 +16,10 @@ return Container(
         children: [
           Icon(Icons.location_on_outlined, color: Colors.deepOrangeAccent,),
           Text('Zihuatanejo, Gro'),
-          Icon(Icons.arrow_drop_down_outlined, color: Colors.deepOrangeAccent,),
+          IconButton(icon: Icon(Icons.arrow_drop_down_outlined), onPressed: () {},),
         ],
       ),
-      IconButton(onPressed: () {} , icon: Icon(Icons.filter_alt_outlined), color: Colors.deepOrangeAccent,),
+      IconButton(onPressed: () {} , icon: Icon(Icons.filter_alt_outlined),),
     ],
   ),
 );

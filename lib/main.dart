@@ -14,6 +14,7 @@ return MaterialApp(
   home: HomeScreen(),
   theme: ThemeData(
     scaffoldBackgroundColor: Color.fromRGBO(229,229,229, 1.0),
+      fontFamily: 'MARKPRO',
   ),
 );
   }

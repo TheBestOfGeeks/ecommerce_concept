@@ -31,10 +31,21 @@ dependencies:
     sdk: flutter
 
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+
+
+  # Presentation packages
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.0.0
+  bottom_navy_bar: ^6.0.0
+
+
+
+  # Domain packages
+  equatable: ^2.0.3
+  dartz: ^0.10.1
+  http: ^0.13.4
+  flutter_bloc: ^8.0.1
+
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +78,14 @@ flutter:
     - assets/icons/group_icon.png
     - assets/images/sale_one.png
     - assets/icons/new.png
+    - assets/images/Samsung_product1.png
+    - assets/images/Samsung_product2.png
+    - assets/images/Samsung_product3.png
+    - assets/images/Samsung_product4.png
+    - assets/icons/bottom_navigation_bar_icons/bottom_icon1.png
+    - assets/icons/bottom_navigation_bar_icons/bottom_icon2.png
+    - assets/icons/bottom_navigation_bar_icons/bottom_icon3.png
+    - assets/icons/bottom_navigation_bar_icons/bottom_icon4.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -78,10 +97,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: MARKPRO
+      fonts:
+        - asset: assets/fonts/MARKPRO.OTF
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
