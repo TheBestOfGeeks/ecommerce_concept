@@ -1,8 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerce_concept/features/home/domain/entities/hot_sales_entity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HotSales extends StatelessWidget {
+
+  List<HotSalesEntity> hotSales;
+
+  HotSales(this.hotSales);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,10 +41,10 @@ class HotSales extends StatelessWidget {
               disableCenter: true,
               pauseAutoPlayOnTouch: true,
             ),
-            items: _sales.map((i) {
+            items: hotSales.map((i) {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: i,
+                child: hotSaleItem(i),
               );
             }).toList(),
           ),
@@ -48,15 +54,16 @@ class HotSales extends StatelessWidget {
   }
 
 
-
-  List _sales = [
-    Container(
+  Widget hotSaleItem(HotSalesEntity item) {
+    return Container(
       decoration: BoxDecoration(color: Colors.black),
       child: Stack(
         fit: StackFit.expand,
         children: [
           Image(
-            image: AssetImage('assets/images/sale_one.png'),
+            image: Image
+                .network('${item.picture}')
+                .image,
             fit: BoxFit.fill,
           ),
           Container(
@@ -65,7 +72,7 @@ class HotSales extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
+                item.isNew ? Container(
                     child: Image(
                       image: AssetImage('assets/icons/new.png'),
                       height: 10,
@@ -76,15 +83,15 @@ class HotSales extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.deepOrangeAccent,
                       borderRadius: BorderRadius.circular(50),
-                    )),
+                    )) : Container(),
                 Text(
-                  'Iphone 12',
+                  item.title,
                   style: TextStyle(color: Colors.white),
                 ),
-                Text(
-                  'Super.Mega.Rapido',
+                item.id != 2 ? Text(
+                  item.subtitle,
                   style: TextStyle(color: Colors.white),
-                ),
+                ) : Text(''),
                 MaterialButton(
                   onPressed: () {},
                   child: Text(
@@ -98,102 +105,36 @@ class HotSales extends StatelessWidget {
           ),
         ],
       ),
-    ),
-    Container(
-      decoration: BoxDecoration(color: Colors.black),
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          Image(
-            image: AssetImage('assets/images/sale_one.png'),
-            fit: BoxFit.fill,
-          ),
-          Container(
-            padding: EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                    child: Image(
-                      image: AssetImage('assets/icons/new.png'),
-                      height: 10,
-                    ),
-                    alignment: Alignment.center,
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      color: Colors.deepOrangeAccent,
-                      borderRadius: BorderRadius.circular(50),
-                    )),
-                Text(
-                  'Name',
-                  style: TextStyle(color: Colors.white),
-                ),
-                Text(
-                  'Description',
-                  style: TextStyle(color: Colors.white),
-                ),
-                MaterialButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Button',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    Container(
-      decoration: BoxDecoration(color: Colors.black),
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          Image(
-            image: AssetImage('assets/images/sale_one.png'),
-            fit: BoxFit.fill,
-          ),
-          Container(
-            padding: EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                    child: Image(
-                      image: AssetImage('assets/icons/new.png'),
-                      height: 10,
-                    ),
-                    alignment: Alignment.center,
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      color: Colors.deepOrangeAccent,
-                      borderRadius: BorderRadius.circular(50),
-                    )),
-                Text(
-                  'Name',
-                  style: TextStyle(color: Colors.white),
-                ),
-                Text(
-                  'Description',
-                  style: TextStyle(color: Colors.white),
-                ),
-                MaterialButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Button',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-  ];
+    );
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

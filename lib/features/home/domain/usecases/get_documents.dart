@@ -2,19 +2,19 @@
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce_concept/core/error/failure.dart';
 import 'package:ecommerce_concept/core/usecases/usecase.dart';
-import 'package:ecommerce_concept/features/home/domain/entities/best_seller_entity.dart';
+import 'package:ecommerce_concept/features/home/domain/entities/home_entity.dart';
 import 'package:equatable/equatable.dart';
 import '../repository/home_repository.dart';
 
-class GetBestSellerDocuments extends Usecase<List<BestSellerEntity>, HomeParams>  {
+class GetDocuments extends Usecase<List<HomeEntity>, HomeParams>  {
 
   final HomeRepository homeRepository;
 
-  GetBestSellerDocuments(this.homeRepository);
+  GetDocuments(this.homeRepository);
 
   @override
-  Future <Either<Failure, List<BestSellerEntity>>> call (HomeParams params) async {
-    return await homeRepository.getBestSellerDocuments(params.path);
+  Future <Either<Failure, List<HomeEntity>>> call (HomeParams params) async {
+    return await homeRepository.getAllDocuments(params.path);
   }
 
 }
