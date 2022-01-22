@@ -29,7 +29,9 @@ class HomeScreen extends StatelessWidget {
     List<HomeEntity> products = [];
 
     print(state);
+
     context.read<HomeBloc>().add(HomeLoadingEvent());
+
 
 if (state is HomeLoadingState) {
   return _loadingIndicator();
@@ -38,7 +40,7 @@ if (state is HomeLoadingState) {
   return _HomeLoadedWidget(products);
 } else if (state is HomeErrorState) {
   return Center(child: Text(state.message));
-} else {return _loadingIndicator();}
+} else {return Scaffold(body: Center(child: Text('Произошла непредвиденная ошибка, разработчики уведомлены')));}
   }
 
 }
@@ -77,6 +79,7 @@ Widget _HomeLoadedWidget(List<HomeEntity> products) {
 
 
 Widget _loadingIndicator() {
+
   return Padding(
     padding: const EdgeInsets.all(8),
     child: Center(

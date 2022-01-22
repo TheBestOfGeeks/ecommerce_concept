@@ -74,7 +74,7 @@ class HotSales extends StatelessWidget {
               children: [
                 item.isNew ? Container(
                     child: Image(
-                      image: AssetImage('assets/icons/new.png'),
+                      image: AssetImage('assets/icons/home_page/new.png'),
                       height: 10,
                     ),
                     alignment: Alignment.center,
@@ -93,10 +93,13 @@ class HotSales extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ) : Text(''),
                 MaterialButton(
+                  height: 25,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                 color: Colors.white,
                   onPressed: () {},
                   child: Text(
                     'Buy now!',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   hoverColor: Colors.white,
                 ),

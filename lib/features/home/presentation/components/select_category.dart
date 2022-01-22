@@ -89,7 +89,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image: AssetImage('assets/icons/phones_icon.png'),
+              image: AssetImage('assets/icons/home_page/phones_icon.png'),
             ),
             decoration: BoxDecoration(
               color: Colors.deepOrangeAccent,
@@ -109,7 +109,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           height: 70,
           child: const Image(
             height: 35,
-            image: AssetImage('assets/icons/phones_icon.png'),
+            image: AssetImage('assets/icons/home_page/phones_icon.png'),
           ),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -133,7 +133,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image: AssetImage('assets/icons/computer_icon.png'),
+              image: AssetImage('assets/icons/home_page/computer_icon.png'),
             ),
             decoration: BoxDecoration(
               color: Colors.deepOrangeAccent,
@@ -152,7 +152,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           height: 70,
           child: const Image(
             height: 35,
-            image: AssetImage('assets/icons/computer_icon.png'),
+            image: AssetImage('assets/icons/home_page/computer_icon.png'),
           ),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -176,7 +176,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image:  AssetImage('assets/icons/health_icon.png'),
+              image:  AssetImage('assets/icons/home_page/health_icon.png'),
             ),
             decoration: BoxDecoration(
               color: Colors.deepOrangeAccent,
@@ -195,7 +195,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           height: 70,
           child: const Image(
             height: 35,
-            image:  AssetImage('assets/icons/health_icon.png'),
+            image:  AssetImage('assets/icons/home_page/health_icon.png'),
           ),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -219,7 +219,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image: AssetImage('assets/icons/books_icon.png'),
+              image: AssetImage('assets/icons/home_page/books_icon.png'),
             ),
             decoration: BoxDecoration(
               color: Colors.deepOrangeAccent,
@@ -238,7 +238,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           height: 70,
           child: const Image(
             height: 35,
-            image: AssetImage('assets/icons/books_icon.png'),
+            image: AssetImage('assets/icons/home_page/books_icon.png'),
           ),
           decoration: BoxDecoration(
             color: Colors.white,

@@ -28,10 +28,10 @@ class BottomNavigationBarrState extends State<BottomNavigationBarr> {
        selectedIndex: _curentIndex,
        backgroundColor: Color.fromRGBO(1,0,53, 1),
        items: [
-         BottomNavyBarItem(icon: Image(image: AssetImage('assets/icons/bottom_navigation_bar_icons/bottom_icon1.png'),height: 10, width: 10,), title: Text('Explorer',style: TextStyle(color: Colors.white)),activeColor: Color.fromRGBO(1,0,53, 1), inactiveColor: Color.fromRGBO(1,0,53, 1) ),
-         BottomNavyBarItem(icon: Image(image: AssetImage('assets/icons/bottom_navigation_bar_icons/bottom_icon2.png'),height: 15, width: 15,), title: Text(''),activeColor: Color.fromRGBO(1,0,53, 1),),
-         BottomNavyBarItem(icon: Image(image: AssetImage('assets/icons/bottom_navigation_bar_icons/bottom_icon3.png'),height: 15, width: 15,), title: Text(''),activeColor: Color.fromRGBO(1,0,53, 1),),
-         BottomNavyBarItem(icon: Image(image: AssetImage('assets/icons/bottom_navigation_bar_icons/bottom_icon4.png'),height: 15, width: 15,), title: Text(''),activeColor: Color.fromRGBO(1,0,53, 1),),
+         BottomNavyBarItem(icon: Image(image: AssetImage('assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon1.png'),height: 10, width: 10,), title: Text('Explorer',style: TextStyle(color: Colors.white)),activeColor: Color.fromRGBO(1,0,53, 1), inactiveColor: Color.fromRGBO(1,0,53, 1) ),
+         BottomNavyBarItem(icon: Image(image: AssetImage('assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon2.png'),height: 15, width: 15,), title: Text(''),activeColor: Color.fromRGBO(1,0,53, 1),),
+         BottomNavyBarItem(icon: Image(image: AssetImage('assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon3.png'),height: 15, width: 15,), title: Text(''),activeColor: Color.fromRGBO(1,0,53, 1),),
+         BottomNavyBarItem(icon: Image(image: AssetImage('assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon4.png'),height: 15, width: 15,), title: Text(''),activeColor: Color.fromRGBO(1,0,53, 1),),
        ],
        onItemSelected: (int value) =>  setState(() {
          _curentIndex = value;

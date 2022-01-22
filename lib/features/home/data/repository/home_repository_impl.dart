@@ -3,6 +3,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce_concept/core/error/exception.dart';
 import 'package:ecommerce_concept/core/error/failure.dart';
+import 'package:ecommerce_concept/core/platform/network_info.dart';
 import 'package:ecommerce_concept/features/home/data/data_sourses/home_remote_data_sourse.dart';
 import 'package:ecommerce_concept/features/home/domain/entities/home_entity.dart';
 import 'package:ecommerce_concept/features/home/domain/repository/home_repository.dart';
@@ -10,17 +11,20 @@ import 'package:ecommerce_concept/features/home/domain/repository/home_repositor
 class HomeRepositoryImpl implements HomeRepository {
 
   final HomeRemoteDataSource homeRemoteDataSource;
+  final NetworkInfo networkInfo;
 
-  HomeRepositoryImpl({required this.homeRemoteDataSource});
+  HomeRepositoryImpl({required this.homeRemoteDataSource,required this.networkInfo});
 
   @override
   Future<Either<Failure, List<HomeEntity>>> getAllDocuments(String path) async {
-    try {
-      final bestSellerProducts = await homeRemoteDataSource.getHomeDocuments(path);
-      return Right(bestSellerProducts);
-    } on ServerException  {
-      return Left(ServerFalure());
-    }
+    if (await networkInfo.isConnected) {
+      try {
+        final allProducts = await homeRemoteDataSource.getHomeDocuments(path);
+        return Right(allProducts);
+      } on ServerException  {
+        return Left(ServerFalure());
+      }
+    } return Left(ServerFalure());
   }
 
   

@@ -10,11 +10,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState>{
 
   final GetDocuments getDocuments;
 
-  HomeBloc({required this.getDocuments}) : super(HomeInitialState()) {
+  HomeBloc({required this.getDocuments}) : super(HomeLoadingState()) {
 
     on<HomeLoadingEvent>((event, emit) async {
       final failureOrHome = await getDocuments.call(HomeParams(path: 'home'));
-      await Future.delayed(Duration(seconds: 1));
       emit(failureOrHome.fold((failure) => HomeErrorState(message: _mapFailureToMessage(failure)), (products) => HomeLoadedState(products: products)));
     });
 

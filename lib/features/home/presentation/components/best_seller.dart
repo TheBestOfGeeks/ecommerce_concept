@@ -56,12 +56,38 @@ return Container(
 
 
  Widget bestSaleItem(BestSellerEntity itemProduct) {
+
   return   Container(
     padding: EdgeInsets.all(5),
     decoration: BoxDecoration(color: Colors.white),
-    child: Stack(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Image(image: Image.network('${itemProduct.picture}').image,),
+        Stack(
+          alignment: AlignmentDirectional.topEnd,
+          children:[
+        Image(image: Image.network('${itemProduct.picture}').image,height: 150),
+            itemProduct.isFavorite ? Container(
+                child: Image(image: AssetImage('assets/icons/home_page/best_seller_icons/is_favorite.png'), height: 15,),
+                alignment: Alignment.center,
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(50),
+                )
+            ) :
+            Container(
+              child: Image(image: AssetImage('assets/icons/home_page/best_seller_icons/is_favorite_empty.png'), height: 15,),
+                alignment: Alignment.center,
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(50),
+                )
+            )
+        ],),
         Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
