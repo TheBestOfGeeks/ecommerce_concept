@@ -86,7 +86,7 @@ class HotSales extends StatelessWidget {
                     )) : Container(),
                 Text(
                   item.title,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 item.id != 2 ? Text(
                   item.subtitle,
