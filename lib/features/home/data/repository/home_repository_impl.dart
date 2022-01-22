@@ -22,9 +22,9 @@ class HomeRepositoryImpl implements HomeRepository {
         final allProducts = await homeRemoteDataSource.getHomeDocuments(path);
         return Right(allProducts);
       } on ServerException  {
-        return Left(ServerFalure());
+        return Left(ServerFailure());
       }
-    } return Left(ServerFalure());
+    } return Left(ServerFailure());
   }
 
   

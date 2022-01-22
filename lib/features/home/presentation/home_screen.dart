@@ -40,7 +40,7 @@ if (state is HomeLoadingState) {
   return _HomeLoadedWidget(products);
 } else if (state is HomeErrorState) {
   return Center(child: Text(state.message));
-} else {return Scaffold(body: Center(child: Text('Произошла непредвиденная ошибка, разработчики уведомлены')));}
+} else {return Center(child: Text('Error'));}
   }
 
 }

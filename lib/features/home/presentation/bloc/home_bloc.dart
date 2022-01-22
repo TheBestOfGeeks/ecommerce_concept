@@ -23,7 +23,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState>{
 
 String _mapFailureToMessage (failure) {
   switch (failure.runtimeType) {
-    case ServerFalure:
+    case ServerFailure:
       return 'Server Error';
     default:
       return 'Unexpected Error';
