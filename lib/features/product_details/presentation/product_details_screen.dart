@@ -47,14 +47,10 @@ Widget _loadedProductScreen(ProductEntity product) {
               height: 10,
             ),
             NameAndStars(product: product),
-            SizedBox(
-              height: 20,
-            ),
+
             Properties(product: product),
-            SizedBox(
-              height: 20,
-            ),
-            SelextPropsAndCartButton(productColors: product.color),
+
+            SelectPropsAndCartButton(product: product),
           ],
         ),
       ),
