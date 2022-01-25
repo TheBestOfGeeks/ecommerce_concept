@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ecommerce_concept/locator_service.dart' as di;
 import 'features/home/presentation/home_screen.dart';
+import 'features/product_details/presentation/bloc/product_bloc.dart';
 import 'locator_service.dart ';
 
 void main() async {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
 return MultiBlocProvider(
   providers: [
     BlocProvider<HomeBloc>(create: (context) => sl<HomeBloc>()),
+    BlocProvider<ProductBloc>(create: (context) => sl<ProductBloc>()),
   ],
   child:   MaterialApp(
     home: HomeScreen(),

@@ -4,40 +4,26 @@ import 'package:ecommerce_concept/features/home/domain/entities/hot_sales_entity
 
 class HomeModel extends HomeEntity {
   HomeModel(
-      {required  String id,
+      {required String id,
       required List<BestSellerEntity> best_seller_path,
       required List<HotSalesEntity> hot_sales_path})
       : super(
             id: id,
             best_seller_path: best_seller_path,
             hot_sales_path: hot_sales_path);
-  
-  
+
   factory HomeModel.fromJson(Map<String, dynamic> json) {
     return HomeModel(
       id: json["_id"],
-      hot_sales_path: List<HotSalesModel>.from(json["home_store"].map((e) => HotSalesModel.fromJson(e))),
-      best_seller_path: List<BestSellerModel>.from(json["best_seller"].map((e) => BestSellerModel.fromJson(e))),
-
+      hot_sales_path: List<HotSalesModel>.from(
+          json["home_store"].map((e) => HotSalesModel.fromJson(e))),
+      best_seller_path: List<BestSellerModel>.from(
+          json["best_seller"].map((e) => BestSellerModel.fromJson(e))),
     );
   }
-
-/*  Map<String, dynamic> toJson() => {
-    "_id": id,
-    "home_store": List<dynamic>.from(hot_sales_path.map((x) => x.toJson())),
-    "best_seller": List<dynamic>.from(best_seller_path.map((x) => x.toJson())),
-  };*/
-  
 }
 
-
-
-
-
-
 class BestSellerModel extends BestSellerEntity {
-
-
   BestSellerModel({
     required int id,
     required bool isFavorite,

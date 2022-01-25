@@ -34,10 +34,10 @@ dependencies:
 
 
   # Presentation packages
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.4
   carousel_slider: ^4.0.0
   bottom_navy_bar: ^6.0.0
-
+  flutter_rating_bar: ^4.0.0
 
 
   # Domain packages
@@ -78,12 +78,25 @@ flutter:
     - assets/icons/home_page/phones_icon.png
     - assets/icons/home_page/group_icon.png
     - assets/icons/home_page/new.png
+    - assets/icons/home_page/star.png
+    - assets/icons/home_page/back_button.png
+    - assets/icons/home_page/back_button.png
     - assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon1.png
     - assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon2.png
     - assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon3.png
     - assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon4.png
     - assets/icons/home_page/best_seller_icons/is_favorite_empty.png
     - assets/icons/home_page/best_seller_icons/is_favorite.png
+    - assets/icons/product_details_page/back_button.png
+    - assets/icons/product_details_page/bucket_button.png
+    - assets/icons/product_details_page/camera.png
+    - assets/icons/product_details_page/like_button.png
+    - assets/icons/product_details_page/activated_like_button.png
+    - assets/icons/product_details_page/memory.png
+    - assets/icons/product_details_page/processor.png
+    - assets/icons/product_details_page/storage.png
+    - assets/icons/product_details_page/check_mark.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

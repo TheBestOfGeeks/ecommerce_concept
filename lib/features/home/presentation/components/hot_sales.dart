@@ -62,7 +62,7 @@ class HotSales extends StatelessWidget {
         children: [
           Image(
             image: Image
-                .network('${item.picture}')
+                .network(item.picture)
                 .image,
             fit: BoxFit.fill,
           ),

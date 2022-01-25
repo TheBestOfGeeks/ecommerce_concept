@@ -9,9 +9,6 @@ import 'package:ecommerce_concept/features/home/data/models/home_model.dart';
 
 abstract class HomeRemoteDataSource {
 
-
-
-
   /// https://shopapi-0575.restdb.io/rest/"end point"
 
   Future<List<HomeEntity>> getHomeDocuments(String path);
