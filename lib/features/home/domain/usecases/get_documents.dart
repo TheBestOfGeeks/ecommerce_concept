@@ -10,7 +10,7 @@ class GetDocuments extends Usecase<List<HomeEntity>, HomeParams>  {
 
   final HomeRepository homeRepository;
 
-  GetDocuments(this.homeRepository);
+  GetDocuments({required this.homeRepository});
 
   @override
   Future <Either<Failure, List<HomeEntity>>> call (HomeParams params) async {

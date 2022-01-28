@@ -18,7 +18,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<HomeBloc>().state;
     List<HomeEntity> products = [];
-    print(state);
     context.read<HomeBloc>().add(HomeLoadingEvent());
 
     if (state is HomeLoadedState) {

@@ -21,6 +21,7 @@ class HomeModel extends HomeEntity {
           json["best_seller"].map((e) => BestSellerModel.fromJson(e))),
     );
   }
+
 }
 
 class BestSellerModel extends BestSellerEntity {

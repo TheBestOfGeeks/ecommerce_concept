@@ -15,24 +15,20 @@ class ProductDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<ProductBloc>().state;
 
-
     context.read<ProductBloc>().productId = 'dfsdg';
 
-
     if (state is LoadedProductState) {
-       ProductEntity product = state.product.first;
+      ProductEntity product = state.product.first;
       return _loadedProductScreen(product);
     } else if (state is ErrorProductState) {
       return Center(child: Text(state.errorMessage));
-    }  else {
+    } else {
       return _loadingIndicator();
     }
-
   }
 }
 
 Widget _loadedProductScreen(ProductEntity product) {
-
   return Scaffold(
     body: SafeArea(
       child: SingleChildScrollView(
@@ -47,9 +43,7 @@ Widget _loadedProductScreen(ProductEntity product) {
               height: 10,
             ),
             NameAndStars(product: product),
-
             Properties(product: product),
-
             SelectPropsAndCartButton(product: product),
           ],
         ),
@@ -57,7 +51,6 @@ Widget _loadedProductScreen(ProductEntity product) {
     ),
   );
 }
-
 
 Widget _loadingIndicator() {
   return const Padding(
