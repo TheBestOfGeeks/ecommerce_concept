@@ -1,10 +1,6 @@
-
-
-
 import 'package:equatable/equatable.dart';
 
 class CartEntity extends Equatable {
-
   CartEntity({
     required this.id,
     required this.delivery,
@@ -19,7 +15,6 @@ class CartEntity extends Equatable {
 
   @override
   List<Object?> get props => [id, delivery, total, basket];
-
 }
 
 class Basket extends Equatable {
@@ -37,5 +32,4 @@ class Basket extends Equatable {
 
   @override
   List<Object?> get props => [id, images, price, title];
-
 }

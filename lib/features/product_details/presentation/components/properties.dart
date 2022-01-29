@@ -52,7 +52,7 @@ class Properties extends StatelessWidget {
             children: [
               Container(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
                     icon: const Image(
@@ -69,52 +69,52 @@ class Properties extends StatelessWidget {
               )),
               Container(
                   child: Column(
-                    children: [
-                      IconButton(
-                        icon: const Image(
-                          image: AssetImage(
-                              'assets/icons/product_details_page/camera.png'),
-                        ),
-                        onPressed: () {},
-                      ),
-                      Text(
-                        product.camera,
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  )),
+                children: [
+                  IconButton(
+                    icon: const Image(
+                      image: AssetImage(
+                          'assets/icons/product_details_page/camera.png'),
+                    ),
+                    onPressed: () {},
+                  ),
+                  Text(
+                    product.camera,
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              )),
               Container(
                   child: Column(
-                    children: [
-                      IconButton(
-                        icon: const Image(
-                          image: AssetImage(
-                              'assets/icons/product_details_page/memory.png'),
-                        ),
-                        onPressed: () {},
-                      ),
-                      Text(
-                        product.ssd,
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  )),
+                children: [
+                  IconButton(
+                    icon: const Image(
+                      image: AssetImage(
+                          'assets/icons/product_details_page/memory.png'),
+                    ),
+                    onPressed: () {},
+                  ),
+                  Text(
+                    product.ssd,
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              )),
               Container(
                   child: Column(
-                    children: [
-                      IconButton(
-                        icon: const Image(
-                          image: AssetImage(
-                              'assets/icons/product_details_page/storage.png'),
-                        ),
-                        onPressed: () {},
-                      ),
-                      Text(
-                        product.sd,
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  )),
+                children: [
+                  IconButton(
+                    icon: const Image(
+                      image: AssetImage(
+                          'assets/icons/product_details_page/storage.png'),
+                    ),
+                    onPressed: () {},
+                  ),
+                  Text(
+                    product.sd,
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              )),
             ],
           )
         ],

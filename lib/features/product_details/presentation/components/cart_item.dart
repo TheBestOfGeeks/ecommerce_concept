@@ -68,10 +68,9 @@ class CartItem extends StatelessWidget {
                   Text(
                     particularItemCount.toString(),
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold
-                    ),
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold),
                   ),
                   IconButton(
                     onPressed: () {},

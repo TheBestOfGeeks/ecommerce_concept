@@ -14,7 +14,7 @@ class BottomNavigationBarr extends StatefulWidget {
 }
 
 class BottomNavigationBarrState extends State<BottomNavigationBarr> {
-  int _curentIndex = 0;
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,31 +24,36 @@ class BottomNavigationBarrState extends State<BottomNavigationBarr> {
       child: BottomNavyBar(
           showElevation: false,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          selectedIndex: _curentIndex,
+          selectedIndex: _currentIndex,
           backgroundColor: Color.fromRGBO(1, 0, 53, 1),
           items: [
             BottomNavyBarItem(
                 icon: Container(
-                    child: Row(
-                      children: [
-                        Image(
-                  image: AssetImage(
-                          'assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon1.png'),
-                  height: 10,
-                  width: 10,
+                  child: Image(
+                    image: AssetImage(
+                        'assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon1.png'),
+                    height: 10,
+                    width: 10,
+                  ),
                 ),
-                        Text('2', style: TextStyle(color: Colors.white)),
-                      ],
-                    )),
                 title: Text('Explorer', style: TextStyle(color: Colors.white)),
                 activeColor: Color.fromRGBO(1, 0, 53, 1),
                 inactiveColor: Color.fromRGBO(1, 0, 53, 1)),
             BottomNavyBarItem(
-              icon: Image(
-                image: AssetImage(
-                    'assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon2.png'),
-                height: 15,
-                width: 15,
+              icon: Row(
+                children: [
+                  Image(
+                    image: AssetImage(
+                        'assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon2.png'),
+                    height: 15,
+                    width: 15,
+                  ),
+                  Text('2',
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25)),
+                ],
               ),
               title: Text('Cart'),
               activeColor: Colors.white,
@@ -76,7 +81,7 @@ class BottomNavigationBarrState extends State<BottomNavigationBarr> {
           ],
           onItemSelected: (int value) {
             setState(() {
-              _curentIndex = value;
+              _currentIndex = value;
             });
             if (value == 1) {
               Navigator.push(

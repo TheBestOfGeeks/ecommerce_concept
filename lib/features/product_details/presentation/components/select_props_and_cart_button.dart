@@ -1,31 +1,24 @@
 import 'package:ecommerce_concept/features/product_details/domain/entities/product_entity.dart';
+import 'package:ecommerce_concept/features/product_details/presentation/bloc/capacity_bloc/capacity_bloc.dart';
+import 'package:ecommerce_concept/features/product_details/presentation/bloc/capacity_bloc/capacity_event.dart';
+import 'package:ecommerce_concept/features/product_details/presentation/bloc/capacity_bloc/capacity_state.dart';
+import 'package:ecommerce_concept/features/product_details/presentation/bloc/color_bloc/color_bloc.dart';
+import 'package:ecommerce_concept/features/product_details/presentation/bloc/color_bloc/color_event.dart';
+import 'package:ecommerce_concept/features/product_details/presentation/bloc/color_bloc/color_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SelectPropsAndCartButton extends StatefulWidget {
+class SelectPropsAndCartButton extends StatelessWidget {
   ProductEntity product;
 
   SelectPropsAndCartButton({required this.product});
-
-  @override
-  State<SelectPropsAndCartButton> createState() =>
-      _SelectPropsAndCartButtonState(
-          product: product);
-}
-
-class _SelectPropsAndCartButtonState extends State<SelectPropsAndCartButton> {
-
-  ProductEntity product;
-
-  _SelectPropsAndCartButtonState(
-      {required this.product});
 
   int? activeColorPicked;
   String? selectedCapacity;
 
   @override
   Widget build(BuildContext context) {
-
     List<String> productColors = product.color;
     List<String> productCapacity = product.capacity;
 
@@ -41,89 +34,102 @@ class _SelectPropsAndCartButtonState extends State<SelectPropsAndCartButton> {
             'Select color and capacity',
             style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
           ),
+          SizedBox(
+            height: 15,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              IconButton(
-                onPressed: () => setState(() {
-                  activeColorPicked = colorDecode(productColors.elementAt(0));
-                }),
-                icon: Container(
-                  padding: EdgeInsets.all(8),
-                  width: 50,
+              BlocBuilder<ColorBloc, ColorState>(builder: (context, state) {
+                return Container(
                   height: 50,
-                  decoration: BoxDecoration(
-                    color: Color(
-                      colorDecode(productColors.elementAt(0)),
-                    ),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: activeColorPicked ==
-                          colorDecode(productColors.elementAt(0))
-                      ? const Image(
-                          image: AssetImage(
-                              'assets/icons/product_details_page/check_mark.png'),
-                        )
-                      : Container(),
-                ),
-              ),
-              IconButton(
-                onPressed: () => setState(() {
-                  activeColorPicked = colorDecode(productColors.elementAt(1));
-                }),
-                icon: Container(
-                  padding: EdgeInsets.all(8),
-                  width: 50,
+                  width: 170,
+                  child: GridView.builder(
+                      itemCount: productColors.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          childAspectRatio: 1),
+                      itemBuilder: (context, index) {
+                        return IconButton(
+                          onPressed: () {
+                            context.read<ColorBloc>().add(
+                                ChoseColorEvent(color: productColors[index]));
+                          },
+                          icon: Container(
+                            padding: EdgeInsets.all(8),
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Color(
+                                colorDecode(productColors[index]),
+                              ),
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: state.color == productColors[index]
+                                ? const Image(
+                                    image: AssetImage(
+                                        'assets/icons/product_details_page/check_mark.png'),
+                                  )
+                                : Container(),
+                          ),
+                        );
+                      }),
+                );
+              }),
+              BlocBuilder<CapacityBloc, CapacityState>(
+                  builder: (context, state) {
+                return Container(
                   height: 50,
-                  decoration: BoxDecoration(
-                    color: Color(
-                      colorDecode(productColors.elementAt(1)),
-                    ),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: activeColorPicked ==
-                          colorDecode(productColors.elementAt(1))
-                      ? const Image(
-                          image: AssetImage(
-                              'assets/icons/product_details_page/check_mark.png'),
-                        )
-                      : Container(),
-                ),
-              ),
-              MaterialButton(
-                onPressed: () => setState(() {
-                  selectedCapacity = productCapacity.elementAt(0);
-                }),
-                color: selectedCapacity == productCapacity.elementAt(0) ? Colors.deepOrangeAccent: Color.fromRGBO(229,229,229, 1.0),
-                child: Text('${productCapacity.elementAt(0)}',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: selectedCapacity == productCapacity.elementAt(0) ? Colors.white: Colors.grey)),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-              ),
-              MaterialButton(
-                onPressed: () => setState(() {
-                  selectedCapacity = productCapacity.elementAt(1);
-                }),
-                color: selectedCapacity == productCapacity.elementAt(1) ? Colors.deepOrangeAccent: Color.fromRGBO(229,229,229, 1.0),
-                child: Text('${productCapacity.elementAt(1)}',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: selectedCapacity == productCapacity.elementAt(1) ? Colors.white: Colors.grey)),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-              ),
+                  width: 150,
+                  child: GridView.builder(
+                      itemCount: productCapacity.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          childAspectRatio: 2.5),
+                      itemBuilder: (context, index) {
+                        return MaterialButton(
+                          onPressed: () {
+                            context.read<CapacityBloc>().add(ChoseCapacityEvent(
+                                capacity: productCapacity[index]));
+                          },
+                          color: state.capacity == productCapacity[index]
+                              ? Colors.deepOrangeAccent
+                              : Color.fromRGBO(229, 229, 229, 1.0),
+                          child: Text('${productCapacity[index]}',
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      state.capacity == productCapacity[index]
+                                          ? Colors.white
+                                          : Colors.grey)),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                        );
+                      }),
+                );
+              })
             ],
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           MaterialButton(
             padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             onPressed: () {},
-            color:  Colors.deepOrangeAccent,
+            color: Colors.deepOrangeAccent,
             child: Text('Add to Cart   \$${product.price.toDouble()}',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 20)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ],
       ),

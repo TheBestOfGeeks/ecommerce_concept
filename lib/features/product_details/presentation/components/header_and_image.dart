@@ -19,8 +19,8 @@ class HeaderAndImage extends StatelessWidget {
               IconButton(
                   onPressed: () => Navigator.pop(context),
                   icon: const Image(
-                    image:
-                        AssetImage('assets/icons/product_details_page/back_button.png'),
+                    image: AssetImage(
+                        'assets/icons/product_details_page/back_button.png'),
                   ),
                   iconSize: 55),
               const Text('Product Details',
@@ -28,8 +28,8 @@ class HeaderAndImage extends StatelessWidget {
               IconButton(
                   onPressed: () {},
                   icon: const Image(
-                    image:
-                        AssetImage('assets/icons/product_details_page/bucket_button.png'),
+                    image: AssetImage(
+                        'assets/icons/product_details_page/bucket_button.png'),
                   ),
                   iconSize: 30),
             ],
@@ -57,8 +57,7 @@ class HeaderAndImage extends StatelessWidget {
 
 Widget image(imageUrl) {
   return Image(
-      image: Image.network(imageUrl).image,
-      fit: BoxFit.fill,
-    );
-
+    image: Image.network(imageUrl).image,
+    fit: BoxFit.fill,
+  );
 }

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class SelectCategory extends StatefulWidget {
-
   @override
   State<SelectCategory> createState() => _SelectCategoryState();
 }
@@ -13,14 +12,14 @@ class _SelectCategoryState extends State<SelectCategory> {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       padding: const EdgeInsets.only(left: 15, right: 15),
-      child:  Column(
+      child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-             const Text(
+              const Text(
                 'Select Category',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
@@ -73,14 +72,9 @@ class _SelectCategoryState extends State<SelectCategory> {
     );
   }
 
-
-
-
-
-
   //Методы смены активной категории Телефоны
   Widget _changeColorPhones(item) {
-    if(item == 1){
+    if (item == 1) {
       return Column(
         children: [
           Container(
@@ -96,35 +90,45 @@ class _SelectCategoryState extends State<SelectCategory> {
               borderRadius: BorderRadius.circular(50),
             ),
           ),
-          SizedBox(height: 5,),
-          Text('Phones', style: TextStyle(color: Colors.deepOrangeAccent),),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            'Phones',
+            style: TextStyle(color: Colors.deepOrangeAccent),
+          ),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       );
-    } else { return Column(
-      children: [
-        Container(
-          alignment: Alignment.center,
-          width: 70,
-          height: 70,
-          child: const Image(
-            height: 35,
-            image: AssetImage('assets/icons/home_page/phones_icon.png'),
+    } else {
+      return Column(
+        children: [
+          Container(
+            alignment: Alignment.center,
+            width: 70,
+            height: 70,
+            child: const Image(
+              height: 35,
+              image: AssetImage('assets/icons/home_page/phones_icon.png'),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(50),
+            ),
           ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
+          SizedBox(
+            height: 5,
           ),
-        ),
-        SizedBox(height: 5,),
-        Text('Phones'),
-      ],
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    );}
+          Text('Phones'),
+        ],
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      );
+    }
   }
+
   //Методы смены активной категории Компьютеры
   Widget _changeColorComputer(item) {
-    if(item == 2){
+    if (item == 2) {
       return Column(
         children: [
           Container(
@@ -140,34 +144,16 @@ class _SelectCategoryState extends State<SelectCategory> {
               borderRadius: BorderRadius.circular(50),
             ),
           ),
-          SizedBox(height: 5,),
-          Text('Computer', style: TextStyle(color: Colors.deepOrangeAccent),),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            'Computer',
+            style: TextStyle(color: Colors.deepOrangeAccent),
+          ),
         ],
       );
-    } else { return Column(
-      children: [
-        Container(
-          alignment: Alignment.center,
-          width: 70,
-          height: 70,
-          child: const Image(
-            height: 35,
-            image: AssetImage('assets/icons/home_page/computer_icon.png'),
-          ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
-          ),
-        ),
-        SizedBox(height: 5,),
-        Text('Computer'),
-      ],
-    );}
-  }
-
-  //Методы смены активной категории Здоровье
-  Widget _changeColorHealth(item) {
-    if(item == 3){
+    } else {
       return Column(
         children: [
           Container(
@@ -176,41 +162,77 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image:  AssetImage('assets/icons/home_page/health_icon.png'),
+              image: AssetImage('assets/icons/home_page/computer_icon.png'),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(50),
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text('Computer'),
+        ],
+      );
+    }
+  }
+
+  //Методы смены активной категории Здоровье
+  Widget _changeColorHealth(item) {
+    if (item == 3) {
+      return Column(
+        children: [
+          Container(
+            alignment: Alignment.center,
+            width: 70,
+            height: 70,
+            child: const Image(
+              height: 35,
+              image: AssetImage('assets/icons/home_page/health_icon.png'),
             ),
             decoration: BoxDecoration(
               color: Colors.deepOrangeAccent,
               borderRadius: BorderRadius.circular(50),
             ),
           ),
-          const SizedBox(height: 5,),
-          const Text('Health', style: TextStyle(color: Colors.deepOrangeAccent),),
+          const SizedBox(
+            height: 5,
+          ),
+          const Text(
+            'Health',
+            style: TextStyle(color: Colors.deepOrangeAccent),
+          ),
         ],
       );
-    } else { return Column(
-      children: [
-        Container(
-          alignment: Alignment.center,
-          width: 70,
-          height: 70,
-          child: const Image(
-            height: 35,
-            image:  AssetImage('assets/icons/home_page/health_icon.png'),
+    } else {
+      return Column(
+        children: [
+          Container(
+            alignment: Alignment.center,
+            width: 70,
+            height: 70,
+            child: const Image(
+              height: 35,
+              image: AssetImage('assets/icons/home_page/health_icon.png'),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(50),
+            ),
           ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
+          const SizedBox(
+            height: 5,
           ),
-        ),
-        const SizedBox(height: 5,),
-        const Text('Health'),
-      ],
-    );}
+          const Text('Health'),
+        ],
+      );
+    }
   }
 
   //Методы смены активной категории Книги
   Widget _changeColorBooks(item) {
-    if(item == 4){
+    if (item == 4) {
       return Column(
         children: [
           Container(
@@ -226,28 +248,37 @@ class _SelectCategoryState extends State<SelectCategory> {
               borderRadius: BorderRadius.circular(50),
             ),
           ),
-          const SizedBox(height: 5,),
-          const Text('Books', style: TextStyle(color: Colors.deepOrangeAccent),),
+          const SizedBox(
+            height: 5,
+          ),
+          const Text(
+            'Books',
+            style: TextStyle(color: Colors.deepOrangeAccent),
+          ),
         ],
       );
-    } else { return Column(
-      children: [
-        Container(
-          alignment: Alignment.center,
-          width: 70,
-          height: 70,
-          child: const Image(
-            height: 35,
-            image: AssetImage('assets/icons/home_page/books_icon.png'),
+    } else {
+      return Column(
+        children: [
+          Container(
+            alignment: Alignment.center,
+            width: 70,
+            height: 70,
+            child: const Image(
+              height: 35,
+              image: AssetImage('assets/icons/home_page/books_icon.png'),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(50),
+            ),
           ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
+          const SizedBox(
+            height: 5,
           ),
-        ),
-        const SizedBox(height: 5,),
-        const Text('Books'),
-      ],
-    );}
+          const Text('Books'),
+        ],
+      );
+    }
   }
 }

@@ -13,13 +13,11 @@ class NameAndStars extends StatefulWidget {
 }
 
 class _NameAndStarsState extends State<NameAndStars> {
-   bool isFavorite = true;
+  bool isFavorite = true;
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
-
       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       width: 500,
       decoration: BoxDecoration(
@@ -43,15 +41,19 @@ class _NameAndStarsState extends State<NameAndStars> {
                     });
                   },
                   icon: Image(
-                    image: isFavorite ? AssetImage('assets/icons/product_details_page/activated_like_button.png'): AssetImage('assets/icons/product_details_page/like_button.png'),
+                    image: isFavorite
+                        ? AssetImage(
+                            'assets/icons/product_details_page/activated_like_button.png')
+                        : AssetImage(
+                            'assets/icons/product_details_page/like_button.png'),
                   ),
                   iconSize: 30),
             ],
           ),
           Container(
             child: RatingBar.builder(
-              initialRating: widget.product.rating.toDouble(),
-              itemSize: 20,
+                initialRating: widget.product.rating.toDouble(),
+                itemSize: 20,
                 itemBuilder: (context, _) => Icon(
                       Icons.star,
                       color: Colors.amber,

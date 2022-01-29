@@ -15,7 +15,7 @@ class ProductDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<ProductBloc>().state;
 
-    context.read<ProductBloc>().productId = 'dfsdg';
+    context.read<ProductBloc>().productId = '';
 
     if (state is LoadedProductState) {
       ProductEntity product = state.product.first;

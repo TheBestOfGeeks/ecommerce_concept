@@ -59,7 +59,6 @@ class BestSeller extends StatelessWidget {
 }
 
 Widget bestSaleItem(BestSellerEntity itemProduct, BuildContext context) {
-
   return GestureDetector(
     onTap: () {
       if (itemProduct.id == 3333) {

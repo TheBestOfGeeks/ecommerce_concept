@@ -4,17 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class GeoAndFilter extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
-
-
-    void _filterBottomSheet () {
+    void _filterBottomSheet() {
       showModalBottomSheet(
           context: context,
           backgroundColor: Colors.transparent,
-          builder: (BuildContext context){
+          builder: (BuildContext context) {
             return FilterSheet();
           });
     }

@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HotSales extends StatelessWidget {
-
   List<HotSalesEntity> hotSales;
 
   HotSales(this.hotSales);
@@ -53,7 +52,6 @@ class HotSales extends StatelessWidget {
     );
   }
 
-
   Widget hotSaleItem(HotSalesEntity item) {
     return Container(
       decoration: BoxDecoration(color: Colors.black),
@@ -61,9 +59,7 @@ class HotSales extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Image(
-            image: Image
-                .network(item.picture)
-                .image,
+            image: Image.network(item.picture).image,
             fit: BoxFit.fill,
           ),
           Container(
@@ -72,30 +68,38 @@ class HotSales extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                item.isNew ? Container(
-                    child: Image(
-                      image: AssetImage('assets/icons/home_page/new.png'),
-                      height: 10,
-                    ),
-                    alignment: Alignment.center,
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      color: Colors.deepOrangeAccent,
-                      borderRadius: BorderRadius.circular(50),
-                    )) : Container(),
+                item.isNew
+                    ? Container(
+                        child: Image(
+                          image: AssetImage('assets/icons/home_page/new.png'),
+                          height: 10,
+                        ),
+                        alignment: Alignment.center,
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: Colors.deepOrangeAccent,
+                          borderRadius: BorderRadius.circular(50),
+                        ))
+                    : Container(),
                 Text(
                   item.title,
-                  style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
                 ),
-                item.id != 2 ? Text(
-                  item.subtitle,
-                  style: TextStyle(color: Colors.white),
-                ) : Text(''),
+                item.id != 2
+                    ? Text(
+                        item.subtitle,
+                        style: TextStyle(color: Colors.white),
+                      )
+                    : Text(''),
                 MaterialButton(
                   height: 25,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                 color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
+                  color: Colors.white,
                   onPressed: () {},
                   child: Text(
                     'Buy now!',
@@ -110,34 +114,4 @@ class HotSales extends StatelessWidget {
       ),
     );
   }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

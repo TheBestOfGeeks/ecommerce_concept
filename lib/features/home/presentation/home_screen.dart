@@ -3,11 +3,11 @@ import 'package:ecommerce_concept/features/home/domain/entities/home_entity.dart
 import 'package:ecommerce_concept/features/home/domain/entities/hot_sales_entity.dart';
 import 'package:ecommerce_concept/features/home/presentation/bloc/home_bloc.dart';
 import 'package:ecommerce_concept/features/home/presentation/bloc/home_state.dart';
+import 'package:ecommerce_concept/features/home/presentation/components/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/home_event.dart';
 import 'components/best_seller.dart';
-import 'components/bottom_navigation_bar.dart';
 import 'components/geo_and_filter.dart';
 import 'components/hot_sales.dart';
 import 'components/search.dart';

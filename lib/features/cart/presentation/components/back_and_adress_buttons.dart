@@ -40,11 +40,12 @@ class BackAndAdressButtons extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Text('My Cart',
-                style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blueAccent[800]),
+            child: Text(
+              'My Cart',
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueAccent[800]),
             ),
           ),
           const SizedBox(
