@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 class Properties extends StatelessWidget {
   ProductEntity product;
 
-  Properties({required this.product});
+  Properties({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       width: 500,
       child: Column(
         children: [
@@ -50,71 +50,67 @@ class Properties extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                  child: Column(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(
-                    icon: const Image(
-                      image: AssetImage(
-                          'assets/icons/product_details_page/processor.png'),
-                    ),
-                    onPressed: () {},
-                  ),
-                  Text(
-                    product.cpu,
-                    style: TextStyle(color: Colors.grey),
-                  ),
+              IconButton(
+                icon: const Image(
+                  image: AssetImage(
+                      'assets/icons/product_details_page/processor.png'),
+                ),
+                onPressed: () {},
+              ),
+              Text(
+                product.cpu,
+                style: const TextStyle(color: Colors.grey),
+              ),
                 ],
-              )),
-              Container(
-                  child: Column(
+              ),
+              Column(
                 children: [
-                  IconButton(
-                    icon: const Image(
-                      image: AssetImage(
-                          'assets/icons/product_details_page/camera.png'),
-                    ),
-                    onPressed: () {},
-                  ),
-                  Text(
-                    product.camera,
-                    style: TextStyle(color: Colors.grey),
-                  ),
+              IconButton(
+                icon: const Image(
+                  image: AssetImage(
+                      'assets/icons/product_details_page/camera.png'),
+                ),
+                onPressed: () {},
+              ),
+              Text(
+                product.camera,
+                style: const TextStyle(color: Colors.grey),
+              ),
                 ],
-              )),
-              Container(
-                  child: Column(
+              ),
+              Column(
                 children: [
-                  IconButton(
-                    icon: const Image(
-                      image: AssetImage(
-                          'assets/icons/product_details_page/memory.png'),
-                    ),
-                    onPressed: () {},
-                  ),
-                  Text(
-                    product.ssd,
-                    style: TextStyle(color: Colors.grey),
-                  ),
+              IconButton(
+                icon: const Image(
+                  image: AssetImage(
+                      'assets/icons/product_details_page/memory.png'),
+                ),
+                onPressed: () {},
+              ),
+              Text(
+                product.ssd,
+                style: const TextStyle(color: Colors.grey),
+              ),
                 ],
-              )),
-              Container(
-                  child: Column(
+              ),
+              Column(
                 children: [
-                  IconButton(
-                    icon: const Image(
-                      image: AssetImage(
-                          'assets/icons/product_details_page/storage.png'),
-                    ),
-                    onPressed: () {},
-                  ),
-                  Text(
-                    product.sd,
-                    style: TextStyle(color: Colors.grey),
-                  ),
+              IconButton(
+                icon: const Image(
+                  image: AssetImage(
+                      'assets/icons/product_details_page/storage.png'),
+                ),
+                onPressed: () {},
+              ),
+              Text(
+                product.sd,
+                style: const TextStyle(color: Colors.grey),
+              ),
                 ],
-              )),
+              ),
             ],
           )
         ],

@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         home: HomeScreen(),
         theme: ThemeData(
-          scaffoldBackgroundColor: Color.fromRGBO(229, 229, 229, 1.0),
+          scaffoldBackgroundColor: const Color.fromRGBO(229, 229, 229, 1.0),
           fontFamily: 'MARKPRO',
         ),
       ),

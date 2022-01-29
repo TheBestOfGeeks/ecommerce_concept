@@ -5,7 +5,6 @@ import 'package:ecommerce_concept/features/product_details/presentation/bloc/cap
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/color_bloc/color_bloc.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/color_bloc/color_event.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/color_bloc/color_state.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,7 +23,7 @@ class SelectPropsAndCartButton extends StatelessWidget {
 
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       width: 500,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -34,7 +33,7 @@ class SelectPropsAndCartButton extends StatelessWidget {
             'Select color and capacity',
             style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Row(
@@ -42,12 +41,12 @@ class SelectPropsAndCartButton extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               BlocBuilder<ColorBloc, ColorState>(builder: (context, state) {
-                return Container(
+                return SizedBox(
                   height: 50,
                   width: 170,
                   child: GridView.builder(
                       itemCount: productColors.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 10,
@@ -59,7 +58,7 @@ class SelectPropsAndCartButton extends StatelessWidget {
                                 ChoseColorEvent(color: productColors[index]));
                           },
                           icon: Container(
-                            padding: EdgeInsets.all(8),
+                            padding: const EdgeInsets.all(8),
                             width: 50,
                             height: 50,
                             decoration: BoxDecoration(
@@ -81,12 +80,12 @@ class SelectPropsAndCartButton extends StatelessWidget {
               }),
               BlocBuilder<CapacityBloc, CapacityState>(
                   builder: (context, state) {
-                return Container(
+                return SizedBox(
                   height: 50,
                   width: 150,
                   child: GridView.builder(
                       itemCount: productCapacity.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 10,
@@ -99,8 +98,8 @@ class SelectPropsAndCartButton extends StatelessWidget {
                           },
                           color: state.capacity == productCapacity[index]
                               ? Colors.deepOrangeAccent
-                              : Color.fromRGBO(229, 229, 229, 1.0),
-                          child: Text('${productCapacity[index]}',
+                              : const Color.fromRGBO(229, 229, 229, 1.0),
+                          child: Text(productCapacity[index],
                               style: TextStyle(
                                   fontSize: 10,
                                   fontWeight: FontWeight.bold,
@@ -116,15 +115,15 @@ class SelectPropsAndCartButton extends StatelessWidget {
               })
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           MaterialButton(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             onPressed: () {},
             color: Colors.deepOrangeAccent,
             child: Text('Add to Cart   \$${product.price.toDouble()}',
-                style: TextStyle(
+                style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     fontSize: 20)),

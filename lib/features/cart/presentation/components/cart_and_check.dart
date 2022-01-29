@@ -13,9 +13,9 @@ class CartAndCheck extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Color.fromRGBO(1, 0, 53, 1),
+        color: const Color.fromRGBO(1, 0, 53, 1),
         borderRadius: BorderRadius.circular(30),
       ),
       child: Column(
@@ -24,9 +24,9 @@ class CartAndCheck extends StatelessWidget {
             height: 350,
             child: AnimationLimiter(
               child: GridView.builder(
-                  physics: BouncingScrollPhysics(
-                      parent: AlwaysScrollableScrollPhysics()),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  physics: const BouncingScrollPhysics(
+                      parent: const AlwaysScrollableScrollPhysics()),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 20,
@@ -40,41 +40,41 @@ class CartAndCheck extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Total',
+              const Text('Total',
                   style: TextStyle(
                     color: Colors.white,
                   )),
               Text('${cartProducts.first.total}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                   )),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Delivery',
+              const Text('Delivery',
                   style: TextStyle(
                     color: Colors.white,
                   )),
               Text('${cartProducts.first.delivery}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                   )),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
             child: MaterialButton(
-              padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
               onPressed: () {},
               color: Colors.deepOrangeAccent,
-              child: Text('Checkout',
+              child: const Text('Checkout',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,

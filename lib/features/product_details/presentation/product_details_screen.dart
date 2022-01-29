@@ -4,7 +4,6 @@ import 'package:ecommerce_concept/features/product_details/presentation/bloc/pro
 import 'package:ecommerce_concept/features/product_details/presentation/components/header_and_image.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/components/name_and_stars.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/components/properties.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,14 +31,14 @@ Widget _loadedProductScreen(ProductEntity product) {
   return Scaffold(
     body: SafeArea(
       child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+        physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             HeaderAndImage(productImages: product.images),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             NameAndStars(product: product),
