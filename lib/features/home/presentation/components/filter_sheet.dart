@@ -8,8 +8,8 @@ class FilterSheet extends StatelessWidget {
         initialChildSize: 0.8,
         builder: (BuildContext context, controller) {
           return Container(
-            padding: EdgeInsets.only(right: 40, left: 40),
-            margin: EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.only(right: 40, left: 40),
+            margin: const EdgeInsets.only(bottom: 20),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.vertical(
                   top: Radius.circular(20), bottom: Radius.circular(20)),
@@ -20,7 +20,7 @@ class FilterSheet extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                top(),
+                top(context),
                 const SizedBox(
                   height: 50,
                 ),
@@ -32,12 +32,14 @@ class FilterSheet extends StatelessWidget {
   }
 }
 
-Widget top() {
+Widget top(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
       IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
         icon: const Image(
           image: AssetImage('assets/icons/home_page/back_button.png'),
           height: 30,
@@ -50,7 +52,7 @@ Widget top() {
       MaterialButton(
         onPressed: () {},
         color: Colors.deepOrangeAccent,
-        child: Text('Done', style: TextStyle(fontWeight: FontWeight.bold)),
+        child: const Text('Done', style: TextStyle(fontWeight: FontWeight.bold)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
     ],
@@ -59,27 +61,28 @@ Widget top() {
 
 Widget filters() {
   List brand = ['Samsung', 'Iphone', 'Xiaomi'];
-
+  List price = ['300-1000','1000-3000','3000-10000'];
+  List size = ['4.7','5.5','6.7'];
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
+      const Text(
         'Brand',
         style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
       ),
       Container(
-        margin: EdgeInsets.only(bottom: 15, top: 5),
+        margin: const EdgeInsets.only(bottom: 15, top: 5),
         height: 30,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
           border: Border.all(
             color: Colors.grey,
           ),
         ),
         child: DropdownButtonFormField(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          decoration: InputDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          decoration: const InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 5),
               isCollapsed: true),
           iconSize: 20,
@@ -89,69 +92,69 @@ Widget filters() {
                 value: b,
                 child: Text(
                   '$b',
-                  style: TextStyle(fontSize: 15),
+                  style: const TextStyle(fontSize: 15),
                 ));
           }).toList(),
           onChanged: (v) {},
         ),
       ),
-      Text(
+      const Text(
         'Price',
         style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
       ),
       Container(
-        margin: EdgeInsets.only(bottom: 15, top: 5),
+        margin: const EdgeInsets.only(bottom: 15, top: 5),
         height: 30,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
           border: Border.all(
             color: Colors.grey,
           ),
         ),
         child: DropdownButtonFormField(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          decoration: InputDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          decoration: const InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 5),
               isCollapsed: true),
           iconSize: 20,
           isExpanded: true,
-          items: brand.map((b) {
+          items: price.map((b) {
             return DropdownMenuItem(
                 value: b,
                 child: Text(
-                  '$b',
-                  style: TextStyle(fontSize: 15),
+                  '$b\$',
+                  style: const TextStyle(fontSize: 15),
                 ));
           }).toList(),
           onChanged: (v) {},
         ),
       ),
-      Text(
+      const Text(
         'Size',
         style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
       ),
       Container(
-        margin: EdgeInsets.only(bottom: 15, top: 5),
+        margin: const EdgeInsets.only(bottom: 15, top: 5),
         height: 30,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
           border: Border.all(
             color: Colors.grey,
           ),
         ),
         child: DropdownButtonFormField(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          decoration: InputDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          decoration: const InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 5),
               isCollapsed: true),
           iconSize: 20,
           isExpanded: true,
-          items: brand.map((b) {
+          items: size.map((b) {
             return DropdownMenuItem(
                 value: b,
                 child: Text(
                   '$b',
-                  style: TextStyle(fontSize: 15),
+                  style: const TextStyle(fontSize: 15),
                 ));
           }).toList(),
           onChanged: (v) {},

@@ -10,6 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'components/select_props_and_cart_button.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
+  const ProductDetailsScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final state = context.watch<ProductBloc>().state;

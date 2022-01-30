@@ -54,7 +54,7 @@ class HotSales extends StatelessWidget {
 
   Widget hotSaleItem(HotSalesEntity item) {
     return Container(
-      decoration: BoxDecoration(color: Colors.black),
+      decoration: const BoxDecoration(color: Colors.black),
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -63,14 +63,14 @@ class HotSales extends StatelessWidget {
             fit: BoxFit.fill,
           ),
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 item.isNew
                     ? Container(
-                        child: Image(
+                        child: const Image(
                           image: AssetImage('assets/icons/home_page/new.png'),
                           height: 10,
                         ),
@@ -84,7 +84,7 @@ class HotSales extends StatelessWidget {
                     : Container(),
                 Text(
                   item.title,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 15,
                       fontWeight: FontWeight.bold),
@@ -92,18 +92,18 @@ class HotSales extends StatelessWidget {
                 item.id != 2
                     ? Text(
                         item.subtitle,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       )
-                    : Text(''),
+                    : const Text(''),
                 MaterialButton(
                   height: 25,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5)),
                   color: Colors.white,
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Buy now!',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   hoverColor: Colors.white,
                 ),

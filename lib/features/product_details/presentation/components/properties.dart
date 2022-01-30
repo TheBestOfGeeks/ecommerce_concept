@@ -1,5 +1,4 @@
 import 'package:ecommerce_concept/features/product_details/domain/entities/product_entity.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Properties extends StatelessWidget {

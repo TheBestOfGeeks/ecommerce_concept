@@ -19,64 +19,64 @@ class BottomNavigationBarrState extends State<BottomNavigationBarr> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+      borderRadius: const BorderRadius.only(
+          topLeft: const Radius.circular(30), topRight: Radius.circular(30)),
       child: BottomNavyBar(
           showElevation: false,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           selectedIndex: _currentIndex,
-          backgroundColor: Color.fromRGBO(1, 0, 53, 1),
+          backgroundColor: const Color.fromRGBO(1, 0, 53, 1),
           items: [
             BottomNavyBarItem(
                 icon: Container(
-                  child: Image(
+                  child: const Image(
                     image: AssetImage(
                         'assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon1.png'),
                     height: 10,
                     width: 10,
                   ),
                 ),
-                title: Text('Explorer', style: TextStyle(color: Colors.white)),
-                activeColor: Color.fromRGBO(1, 0, 53, 1),
-                inactiveColor: Color.fromRGBO(1, 0, 53, 1)),
+                title: const Text('Explorer', style: TextStyle(color: Colors.white)),
+                activeColor: const Color.fromRGBO(1, 0, 53, 1),
+                inactiveColor: const Color.fromRGBO(1, 0, 53, 1)),
             BottomNavyBarItem(
               icon: Row(
                 children: [
-                  Image(
+                  const Image(
                     image: AssetImage(
                         'assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon2.png'),
                     height: 15,
                     width: 15,
                   ),
-                  Text('2',
-                      style: TextStyle(
+                  const Text('2',
+                      style: const TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
                           fontSize: 25)),
                 ],
               ),
-              title: Text('Cart'),
+              title: const Text('Cart'),
               activeColor: Colors.white,
             ),
             BottomNavyBarItem(
-              icon: Image(
-                image: AssetImage(
+              icon: const Image(
+                image: const AssetImage(
                     'assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon3.png'),
                 height: 15,
                 width: 15,
               ),
-              title: Text(''),
-              activeColor: Color.fromRGBO(1, 0, 53, 1),
+              title: const Text(''),
+              activeColor: const Color.fromRGBO(1, 0, 53, 1),
             ),
             BottomNavyBarItem(
-              icon: Image(
-                image: AssetImage(
+              icon: const Image(
+                image: const AssetImage(
                     'assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon4.png'),
                 height: 15,
                 width: 15,
               ),
-              title: Text(''),
-              activeColor: Color.fromRGBO(1, 0, 53, 1),
+              title: const Text(''),
+              activeColor: const Color.fromRGBO(1, 0, 53, 1),
             ),
           ],
           onItemSelected: (int value) {

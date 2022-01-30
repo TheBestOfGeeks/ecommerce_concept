@@ -8,10 +8,10 @@ class CartEntity extends Equatable {
     required this.basket,
   });
 
-  String id;
-  String delivery;
-  int total;
-  List<Basket> basket;
+  final String id;
+  final String delivery;
+  final int total;
+  final List<Basket> basket;
 
   @override
   List<Object?> get props => [id, delivery, total, basket];

@@ -1,6 +1,5 @@
 import 'package:ecommerce_concept/features/cart/presentation/bloc/cart_%20event.dart';
 import 'package:ecommerce_concept/features/cart/presentation/bloc/cart_bloc.dart';
-import 'package:ecommerce_concept/features/home/presentation/components/bottom_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,9 +16,6 @@ class CartPage extends StatelessWidget {
     final state = context.watch<CartBloc>().state;
     context.read<CartBloc>().add(LoadingCartEvent());
 
-    print(context
-        .findAncestorStateOfType<BottomNavigationBarrState>()
-        .runtimeType);
 
     if (state is LoadedCartState) {
       products = state.cartProducts;
@@ -39,7 +35,7 @@ Widget _loadedCartScreen(List<CartEntity> products) {
   return Scaffold(
       body: SafeArea(
     child: SingleChildScrollView(
-      physics: ScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+      physics: const ScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
       child: Column(
         children: [
           BackAndAdressButtons(),

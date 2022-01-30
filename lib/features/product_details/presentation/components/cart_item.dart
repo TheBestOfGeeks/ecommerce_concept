@@ -36,11 +36,11 @@ class CartItem extends StatelessWidget {
             children: [
               Text(
                 item.title,
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                style: const TextStyle(color: Colors.white, fontSize: 20),
               ),
               Text(
                 '\$${item.price.toDouble()}',
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.deepOrangeAccent,
                     fontWeight: FontWeight.bold,
                     fontSize: 15),
@@ -51,7 +51,7 @@ class CartItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
             child: Container(
               width: 30,
-              color: Color.fromRGBO(40, 40, 67, 1),
+              color: const Color.fromRGBO(40, 40, 67, 1),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -59,7 +59,7 @@ class CartItem extends StatelessWidget {
                   SizedBox(
                     child: IconButton(
                       onPressed: () {},
-                      icon: Image(
+                      icon: const Image(
                           image: AssetImage('assets/icons/cart_page/minus.png'),
                           width: 15),
                     ),
@@ -67,14 +67,14 @@ class CartItem extends StatelessWidget {
                   ),
                   Text(
                     particularItemCount.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 10,
                         fontWeight: FontWeight.bold),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Image(
+                    icon: const Image(
                       image: AssetImage('assets/icons/cart_page/plus.png'),
                     ),
                   ),
@@ -84,8 +84,8 @@ class CartItem extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: Image(
-              image: AssetImage('assets/icons/cart_page/delete.png'),
+            icon: const Image(
+              image: const AssetImage('assets/icons/cart_page/delete.png'),
               width: 20,
             ),
           ),

@@ -90,12 +90,12 @@ class _SelectCategoryState extends State<SelectCategory> {
               borderRadius: BorderRadius.circular(50),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
-          Text(
+          const Text(
             'Phones',
-            style: TextStyle(color: Colors.deepOrangeAccent),
+            style: const TextStyle(color: Colors.deepOrangeAccent),
           ),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -116,10 +116,10 @@ class _SelectCategoryState extends State<SelectCategory> {
               borderRadius: BorderRadius.circular(50),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
-          Text('Phones'),
+          const Text('Phones'),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       );
@@ -144,10 +144,10 @@ class _SelectCategoryState extends State<SelectCategory> {
               borderRadius: BorderRadius.circular(50),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
-          Text(
+          const Text(
             'Computer',
             style: TextStyle(color: Colors.deepOrangeAccent),
           ),
@@ -169,10 +169,10 @@ class _SelectCategoryState extends State<SelectCategory> {
               borderRadius: BorderRadius.circular(50),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
-          Text('Computer'),
+          const Text('Computer'),
         ],
       );
     }

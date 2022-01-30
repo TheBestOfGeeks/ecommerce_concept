@@ -20,7 +20,7 @@ class CartAndCheck extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 350,
             child: AnimationLimiter(
               child: GridView.builder(
@@ -60,7 +60,7 @@ class CartAndCheck extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                   )),
-              Text('${cartProducts.first.delivery}',
+              Text(cartProducts.first.delivery,
                   style: const TextStyle(
                     color: Colors.white,
                   )),
@@ -69,19 +69,17 @@ class CartAndCheck extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Container(
-            child: MaterialButton(
-              padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
-              onPressed: () {},
-              color: Colors.deepOrangeAccent,
-              child: const Text('Checkout',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 20)),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-            ),
+          MaterialButton(
+            padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+            onPressed: () {},
+            color: Colors.deepOrangeAccent,
+            child: const Text('Checkout',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 20)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10)),
           ),
         ],
       ),

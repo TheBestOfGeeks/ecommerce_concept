@@ -8,9 +8,9 @@ class Search extends StatelessWidget {
       padding: const EdgeInsets.only(left: 35, right: 35),
       child: Row(
         children: [
-          Expanded(
+          const Expanded(
             flex: 5,
-            child: const SizedBox(
+            child: SizedBox(
               height: 40,
               child: TextField(
                 decoration: InputDecoration(
@@ -43,9 +43,9 @@ class Search extends StatelessWidget {
             child: IconButton(
                 onPressed: () {},
                 icon: Container(
-                    child: Image(
+                    child: const Image(
                       image:
-                          AssetImage('assets/icons/home_page/group_icon.png'),
+                          const AssetImage('assets/icons/home_page/group_icon.png'),
                       height: 15,
                     ),
                     alignment: Alignment.center,

@@ -6,7 +6,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 class NameAndStars extends StatefulWidget {
   ProductEntity product;
 
-  NameAndStars({required this.product});
+  NameAndStars({Key? key, required this.product}) : super(key: key);
 
   @override
   State<NameAndStars> createState() => _NameAndStarsState();
@@ -18,9 +18,9 @@ class _NameAndStarsState extends State<NameAndStars> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       width: 500,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(20), topLeft: Radius.circular(20)),
         color: Colors.white,
@@ -33,7 +33,7 @@ class _NameAndStarsState extends State<NameAndStars> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(widget.product.title,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
               IconButton(
                   onPressed: () {
                     setState(() {
@@ -42,24 +42,22 @@ class _NameAndStarsState extends State<NameAndStars> {
                   },
                   icon: Image(
                     image: isFavorite
-                        ? AssetImage(
+                        ? const AssetImage(
                             'assets/icons/product_details_page/activated_like_button.png')
-                        : AssetImage(
+                        : const AssetImage(
                             'assets/icons/product_details_page/like_button.png'),
                   ),
                   iconSize: 30),
             ],
           ),
-          Container(
-            child: RatingBar.builder(
-                initialRating: widget.product.rating.toDouble(),
-                itemSize: 20,
-                itemBuilder: (context, _) => Icon(
-                      Icons.star,
-                      color: Colors.amber,
-                    ),
-                onRatingUpdate: (rate) {}),
-          ),
+          RatingBar.builder(
+              initialRating: widget.product.rating.toDouble(),
+              itemSize: 20,
+              itemBuilder: (context, _) => const Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+              onRatingUpdate: (rate) {}),
         ],
       ),
     );
