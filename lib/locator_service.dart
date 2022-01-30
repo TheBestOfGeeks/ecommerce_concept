@@ -1,6 +1,8 @@
 import 'package:ecommerce_concept/features/cart/data/data_sourses/cart_remote_data_sourse.dart';
 import 'package:ecommerce_concept/features/cart/data/repository/Cart_products_repository_impl.dart';
 import 'package:ecommerce_concept/features/cart/domain/repository/cart_products_repository.dart';
+import 'package:ecommerce_concept/features/cart/domain/use_cases/get_cart_items.dart';
+import 'package:ecommerce_concept/features/cart/presentation/bloc/get_cart_items_bloc/cart_items_bloc.dart';
 import 'package:ecommerce_concept/features/home/data/data_sourses/home_remote_data_sourse.dart';
 import 'package:ecommerce_concept/features/home/data/repository/home_repository_impl.dart';
 import 'package:ecommerce_concept/features/home/domain/repository/home_repository.dart';
@@ -26,11 +28,13 @@ init() {
   sl.registerFactory(() => HomeBloc(getDocuments: sl()));
   sl.registerFactory(() => ProductBloc(productDetails: sl()));
   sl.registerFactory(() => CartBloc(getCartProducts: sl()));
+  sl.registerFactory(() => CartItemsBloc(getCartItems:   sl()));
 
   // UseCases
   sl.registerLazySingleton(() => GetDocuments(homeRepository: sl()));
   sl.registerLazySingleton(() => GetProductDetails(productRepository: sl()));
   sl.registerLazySingleton(() => GetCartProducts(cartProductsRepository: sl()));
+  sl.registerLazySingleton(() => GetCartItems(cartProductsRepository: sl()));
   //Repository
   sl.registerLazySingleton<HomeRepository>(
       () => HomeRepositoryImpl(homeRemoteDataSource: sl(), networkInfo: sl()));

@@ -1,4 +1,5 @@
 import 'package:ecommerce_concept/features/cart/presentation/bloc/cart_bloc.dart';
+import 'package:ecommerce_concept/features/cart/presentation/bloc/get_cart_items_bloc/cart_items_bloc.dart';
 import 'package:ecommerce_concept/features/home/presentation/bloc/home_bloc.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/capacity_bloc/capacity_bloc.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/color_bloc/color_bloc.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<CartBloc>(create: (context) => sl<CartBloc>()),
         BlocProvider<CapacityBloc>(create: (context) => CapacityBloc()),
         BlocProvider<ColorBloc>(create: (context) => ColorBloc()),
+        BlocProvider<CartItemsBloc>(create: (context) => sl<CartItemsBloc>()),
       ],
       child: MaterialApp(
         home: HomeScreen(),
