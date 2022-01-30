@@ -1,3 +1,4 @@
+import 'package:ecommerce_concept/features/cart/presentation/CartPage.dart';
 import 'package:ecommerce_concept/features/product_details/domain/entities/product_entity.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/capacity_bloc/capacity_bloc.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/capacity_bloc/capacity_event.dart';
@@ -46,11 +47,12 @@ class SelectPropsAndCartButton extends StatelessWidget {
                   width: 170,
                   child: GridView.builder(
                       itemCount: productColors.length,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                          childAspectRatio: 1),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                              childAspectRatio: 1),
                       itemBuilder: (context, index) {
                         return IconButton(
                           onPressed: () {
@@ -85,11 +87,12 @@ class SelectPropsAndCartButton extends StatelessWidget {
                   width: 150,
                   child: GridView.builder(
                       itemCount: productCapacity.length,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                          childAspectRatio: 2.5),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                              childAspectRatio: 2.5),
                       itemBuilder: (context, index) {
                         return MaterialButton(
                           onPressed: () {
@@ -120,7 +123,12 @@ class SelectPropsAndCartButton extends StatelessWidget {
           ),
           MaterialButton(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => CartPage()));
+            },
             color: Colors.deepOrangeAccent,
             child: Text('Add to Cart   \$${product.price.toDouble()}',
                 style: const TextStyle(

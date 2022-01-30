@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerce_concept/features/cart/presentation/CartPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,12 @@ class HeaderAndImage extends StatelessWidget {
               const Text('Product Details',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => CartPage()));
+                  },
                   icon: const Image(
                     image: AssetImage(
                         'assets/icons/product_details_page/bucket_button.png'),
