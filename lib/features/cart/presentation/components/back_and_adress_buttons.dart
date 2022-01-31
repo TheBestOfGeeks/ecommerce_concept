@@ -28,9 +28,10 @@ class BackAndAdressButtons extends StatelessWidget {
                   IconButton(
                       onPressed: () {},
                       icon: const Image(
+
                         image: AssetImage('assets/icons/cart_page/address.png'),
                       ),
-                      iconSize: 50),
+                      iconSize: 49),
                 ],
               )
             ],
@@ -43,8 +44,8 @@ class BackAndAdressButtons extends StatelessWidget {
             child: Text(
               'My Cart',
               style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 35,
+                  fontWeight: FontWeight.w700,
                   color: Colors.blueAccent[800]),
             ),
           ),

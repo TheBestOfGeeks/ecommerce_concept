@@ -16,6 +16,7 @@ class CartProductsRepositoryImpl implements CartProductsRepository {
   Future<Either<Failure, List<CartEntity>>> getCartProducts() async {
     if (await networkInfo.isConnected) {
       final cartDocuments = await cartRemoteDataSource.getCartDocument();
+
       return Right(cartDocuments);
     } else {
       return Left(ServerFailure());

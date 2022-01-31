@@ -17,15 +17,26 @@ class Properties extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Shop',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.black),
-                  )),
+              Column(
+                children: [
+                  TextButton(
+                    style: TextButton.styleFrom(
+                    ),
+                      onPressed: () {},
+                      child: const Text(
+                        'Shop',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.black),
+                      )),
+                  Container(
+                    width: 86,
+                    height: 3,
+                    color: Colors.deepOrange,
+                  ),
+                ],
+              ),
               TextButton(
                   onPressed: () {},
                   child: const Text(
@@ -33,7 +44,7 @@ class Properties extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        color: Colors.black),
+                        color: Color.fromRGBO(0, 0, 0, 0.5)),
                   )),
               TextButton(
                   onPressed: () {},
@@ -42,10 +53,11 @@ class Properties extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        color: Colors.black),
+                        color: Color.fromRGBO(0, 0, 0, 0.5)),
                   )),
             ],
           ),
+          SizedBox(height: 33,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -54,6 +66,8 @@ class Properties extends StatelessWidget {
                 children: [
               IconButton(
                 icon: const Image(
+                  height: 28,
+                  width: 28,
                   image: AssetImage(
                       'assets/icons/product_details_page/processor.png'),
                 ),
@@ -61,7 +75,7 @@ class Properties extends StatelessWidget {
               ),
               Text(
                 product.cpu,
-                style: const TextStyle(color: Colors.grey),
+                style: const TextStyle(color: Colors.grey, fontSize: 11),
               ),
                 ],
               ),
@@ -69,6 +83,8 @@ class Properties extends StatelessWidget {
                 children: [
               IconButton(
                 icon: const Image(
+                  height: 28,
+                  width: 28,
                   image: AssetImage(
                       'assets/icons/product_details_page/camera.png'),
                 ),
@@ -76,7 +92,7 @@ class Properties extends StatelessWidget {
               ),
               Text(
                 product.camera,
-                style: const TextStyle(color: Colors.grey),
+                style: const TextStyle(color: Colors.grey, fontSize: 11),
               ),
                 ],
               ),
@@ -84,6 +100,8 @@ class Properties extends StatelessWidget {
                 children: [
               IconButton(
                 icon: const Image(
+                  height: 28,
+                  width: 28,
                   image: AssetImage(
                       'assets/icons/product_details_page/memory.png'),
                 ),
@@ -91,7 +109,7 @@ class Properties extends StatelessWidget {
               ),
               Text(
                 product.ssd,
-                style: const TextStyle(color: Colors.grey),
+                style: const TextStyle(color: Colors.grey, fontSize: 11),
               ),
                 ],
               ),
@@ -99,6 +117,8 @@ class Properties extends StatelessWidget {
                 children: [
               IconButton(
                 icon: const Image(
+                  height: 28,
+                  width: 28,
                   image: AssetImage(
                       'assets/icons/product_details_page/storage.png'),
                 ),
@@ -106,7 +126,7 @@ class Properties extends StatelessWidget {
               ),
               Text(
                 product.sd,
-                style: const TextStyle(color: Colors.grey),
+                style: const TextStyle(color: Colors.grey, fontSize: 11),
               ),
                 ],
               ),

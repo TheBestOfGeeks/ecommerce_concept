@@ -24,7 +24,7 @@ class BestSeller extends StatelessWidget {
             children: [
               const Text(
                 'Best Seller',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
               ),
               TextButton(
                   onPressed: () {},
@@ -40,8 +40,8 @@ class BestSeller extends StatelessWidget {
               physics:
                   BouncingScrollPhysics(parent: NeverScrollableScrollPhysics()),
               crossAxisCount: 2,
-              mainAxisSpacing: 5,
-              crossAxisSpacing: 5,
+              mainAxisSpacing: 14,
+              crossAxisSpacing: 14,
               padding: const EdgeInsets.all(5),
               childAspectRatio: 0.8,
               children: bestseller.map((product) {
@@ -117,7 +117,7 @@ Widget bestSaleItem(BestSellerEntity itemProduct, BuildContext context) {
             children: [
               Row(
                 children: [
-                  Text('\$${itemProduct.price_without_discount}  '),
+                  Text('\$${itemProduct.price_without_discount}  ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),),
                   Text(
                     '\$${itemProduct.discount_price}  ',
                     style: TextStyle(

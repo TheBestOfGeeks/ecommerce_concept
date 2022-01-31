@@ -14,19 +14,21 @@ class HeaderAndImage extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             children: [
               IconButton(
+                padding: EdgeInsets.only(left: 42),
                   onPressed: () => Navigator.pop(context),
                   icon: const Image(
                     image: AssetImage(
                         'assets/icons/product_details_page/back_button.png'),
                   ),
-                  iconSize: 55),
+                  iconSize: 65),
               const Text('Product Details',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               IconButton(
+                  padding: EdgeInsets.only(right: 35),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -37,12 +39,13 @@ class HeaderAndImage extends StatelessWidget {
                     image: AssetImage(
                         'assets/icons/product_details_page/bucket_button.png'),
                   ),
-                  iconSize: 30),
+                  iconSize: 40),
             ],
           ),
           CarouselSlider(
             options: CarouselOptions(
-              height: 300,
+
+              aspectRatio: 1.1,
               enlargeCenterPage: true,
               autoPlayCurve: Curves.elasticInOut,
               disableCenter: true,
@@ -62,8 +65,10 @@ class HeaderAndImage extends StatelessWidget {
 }
 
 Widget image(imageUrl) {
-  return Image(
-    image: Image.network(imageUrl).image,
-    fit: BoxFit.fill,
+  return Container(
+    color: Colors.white,
+    child: Image(
+      image: Image.network(imageUrl).image,
+    ),
   );
 }

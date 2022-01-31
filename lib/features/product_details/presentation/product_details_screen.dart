@@ -33,7 +33,6 @@ Widget _loadedProductScreen(ProductEntity product) {
   return Scaffold(
     body: SafeArea(
       child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
         child: Column(
           children: [
             const SizedBox(

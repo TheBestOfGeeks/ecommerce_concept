@@ -8,7 +8,6 @@ class FilterSheet extends StatelessWidget {
         initialChildSize: 0.8,
         builder: (BuildContext context, controller) {
           return Container(
-            padding: const EdgeInsets.only(right: 40, left: 40),
             margin: const EdgeInsets.only(bottom: 20),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.vertical(
@@ -34,26 +33,31 @@ class FilterSheet extends StatelessWidget {
 
 Widget top(BuildContext context) {
   return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       IconButton(
+        padding: EdgeInsets.only(left: 44),
+        iconSize: 32,
         onPressed: () {
           Navigator.pop(context);
         },
         icon: const Image(
           image: AssetImage('assets/icons/home_page/back_button.png'),
-          height: 30,
         ),
       ),
       const Text(
         'Filter options',
         style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
       ),
-      MaterialButton(
-        onPressed: () {},
-        color: Colors.deepOrangeAccent,
-        child: const Text('Done', style: TextStyle(fontWeight: FontWeight.bold)),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      Container(
+        padding: EdgeInsets.only(right: 20),
+        child: MaterialButton(
+          onPressed: () {},
+          color: Colors.deepOrangeAccent,
+          child: const Text('Done', style: TextStyle(fontWeight: FontWeight.bold)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        ),
       ),
     ],
   );
@@ -63,103 +67,107 @@ Widget filters() {
   List brand = ['Samsung', 'Iphone', 'Xiaomi'];
   List price = ['300-1000','1000-3000','3000-10000'];
   List size = ['4.7','5.5','6.7'];
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      const Text(
-        'Brand',
-        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-      ),
-      Container(
-        margin: const EdgeInsets.only(bottom: 15, top: 5),
-        height: 30,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(5)),
-          border: Border.all(
-            color: Colors.grey,
+  return Container(
+    padding: const EdgeInsets.only(right: 31, left: 31),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Brand',
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        ),
+        Container(
+          margin: const EdgeInsets.only(bottom: 15, top: 5),
+          height: 30,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(5)),
+            border: Border.all(
+              color: Colors.grey,
+            ),
+          ),
+          child: DropdownButtonFormField(
+            decoration: const InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Color.fromRGBO(220,220,220, 1)),
+              ),
+                contentPadding: EdgeInsets.symmetric(vertical: 5),
+                isCollapsed: true),
+            iconSize: 20,
+            isExpanded: true,
+            items: brand.map((b) {
+              return DropdownMenuItem(
+                  value: b,
+                  child: Text(
+                    '$b',
+                    style: const TextStyle(fontSize: 15),
+                  ));
+            }).toList(),
+            onChanged: (v) {},
+
           ),
         ),
-        child: DropdownButtonFormField(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          decoration: const InputDecoration(
-              contentPadding: EdgeInsets.symmetric(vertical: 5),
-              isCollapsed: true),
-          iconSize: 20,
-          isExpanded: true,
-          items: brand.map((b) {
-            return DropdownMenuItem(
-                value: b,
-                child: Text(
-                  '$b',
-                  style: const TextStyle(fontSize: 15),
-                ));
-          }).toList(),
-          onChanged: (v) {},
+        const Text(
+          'Price',
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
-      ),
-      const Text(
-        'Price',
-        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-      ),
-      Container(
-        margin: const EdgeInsets.only(bottom: 15, top: 5),
-        height: 30,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(5)),
-          border: Border.all(
-            color: Colors.grey,
+        Container(
+          margin: const EdgeInsets.only(bottom: 15, top: 5),
+          height: 30,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(5)),
+            border: Border.all(
+              color: Colors.grey,
+            ),
+          ),
+          child: DropdownButtonFormField(
+            decoration: const InputDecoration(
+                contentPadding: EdgeInsets.symmetric(vertical: 5),
+                isCollapsed: true),
+            iconSize: 20,
+            isExpanded: true,
+            items: price.map((b) {
+              return DropdownMenuItem(
+                  value: b,
+                  child: Text(
+                    '$b\$',
+                    style: const TextStyle(fontSize: 15),
+                  ));
+            }).toList(),
+            onChanged: (v) {},
           ),
         ),
-        child: DropdownButtonFormField(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          decoration: const InputDecoration(
-              contentPadding: EdgeInsets.symmetric(vertical: 5),
-              isCollapsed: true),
-          iconSize: 20,
-          isExpanded: true,
-          items: price.map((b) {
-            return DropdownMenuItem(
-                value: b,
-                child: Text(
-                  '$b\$',
-                  style: const TextStyle(fontSize: 15),
-                ));
-          }).toList(),
-          onChanged: (v) {},
+        const Text(
+          'Size',
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
-      ),
-      const Text(
-        'Size',
-        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-      ),
-      Container(
-        margin: const EdgeInsets.only(bottom: 15, top: 5),
-        height: 30,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(5)),
-          border: Border.all(
-            color: Colors.grey,
+        Container(
+          margin: const EdgeInsets.only(bottom: 15, top: 5),
+          height: 30,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(5)),
+            border: Border.all(
+              color: Colors.grey,
+            ),
+          ),
+          child: DropdownButtonFormField(
+            decoration: const InputDecoration(
+                contentPadding: EdgeInsets.symmetric(vertical: 5),
+                isCollapsed: true),
+            iconSize: 20,
+            isExpanded: true,
+            items: size.map((b) {
+              return DropdownMenuItem(
+                  value: b,
+                  child: Text(
+                    '$b',
+                    style: const TextStyle(fontSize: 15),
+                  ));
+            }).toList(),
+            onChanged: (v) {},
           ),
         ),
-        child: DropdownButtonFormField(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          decoration: const InputDecoration(
-              contentPadding: EdgeInsets.symmetric(vertical: 5),
-              isCollapsed: true),
-          iconSize: 20,
-          isExpanded: true,
-          items: size.map((b) {
-            return DropdownMenuItem(
-                value: b,
-                child: Text(
-                  '$b',
-                  style: const TextStyle(fontSize: 15),
-                ));
-          }).toList(),
-          onChanged: (v) {},
-        ),
-      ),
-    ],
+      ],
+    ),
   );
 }

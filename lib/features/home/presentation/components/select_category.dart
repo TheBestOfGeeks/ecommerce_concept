@@ -21,7 +21,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             children: [
               const Text(
                 'Select Category',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
               ),
               TextButton(
                   onPressed: () {},

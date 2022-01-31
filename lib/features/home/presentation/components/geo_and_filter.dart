@@ -29,7 +29,7 @@ class GeoAndFilter extends StatelessWidget {
                 Icons.location_on_outlined,
                 color: Colors.deepOrangeAccent,
               ),
-              const Text('Zihuatanejo, Gro'),
+              const Text('Zihuatanejo, Gro', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),),
               IconButton(
                 icon: Icon(Icons.arrow_drop_down_outlined),
                 onPressed: () {},

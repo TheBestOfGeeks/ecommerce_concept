@@ -20,7 +20,7 @@ class HotSales extends StatelessWidget {
               children: [
                 const Text(
                   'Hot sales',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
                 ),
                 TextButton(
                     onPressed: () {},
@@ -33,9 +33,10 @@ class HotSales extends StatelessWidget {
           ),
           CarouselSlider(
             options: CarouselOptions(
-              height: 170,
-              enlargeCenterPage: true,
+              height: 180,
               autoPlay: true,
+              autoPlayAnimationDuration: Duration(seconds: 5),
+              enlargeCenterPage: true,
               autoPlayCurve: Curves.elasticInOut,
               disableCenter: true,
               pauseAutoPlayOnTouch: true,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../product_details/presentation/components/cart_item.dart';
+import 'cart_item.dart';
 
 class CartAndCheck extends StatelessWidget {
   List<CartEntity> cartProducts;
@@ -13,15 +13,16 @@ class CartAndCheck extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      height: 770,
+      padding: const EdgeInsets.only(top: 80),
       decoration: BoxDecoration(
         color: const Color.fromRGBO(1, 0, 53, 1),
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
       ),
       child: Column(
         children: [
           SizedBox(
-            height: 350,
+            height: 450,
             child: AnimationLimiter(
               child: GridView.builder(
                   physics: const BouncingScrollPhysics(
@@ -37,49 +38,70 @@ class CartAndCheck extends StatelessWidget {
                   }),
             ),
           ),
-          Row(
+          Container(
+            width: 406,
+            height: 2,
+            color: Color.fromRGBO(255, 255, 255, 0.25),
+          ),
+          Container(
+            padding: const EdgeInsets.only(top: 15, left: 55, right: 55),
+         child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text('Total',
                   style: TextStyle(
                     color: Colors.white,
+                    fontSize: 15,
                   )),
-              Text('${cartProducts.first.total}',
+              Text('\$${cartProducts.first.total} us',
                   style: const TextStyle(
                     color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
                   )),
             ],
           ),
-          const SizedBox(
-            height: 10,
           ),
-          Row(
+          Container(
+            padding: const EdgeInsets.only(top: 12, left: 55, right: 55, bottom: 26),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text('Delivery',
                   style: TextStyle(
                     color: Colors.white,
+                    fontSize: 15,
                   )),
               Text(cartProducts.first.delivery,
                   style: const TextStyle(
                     color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
                   )),
             ],
           ),
-          const SizedBox(
-            height: 20,
+    ),
+          Container(
+            width: 406,
+            height: 2,
+            color: Color.fromRGBO(255, 255, 255, 0.25),
           ),
-          MaterialButton(
-            padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
-            onPressed: () {},
-            color: Colors.deepOrangeAccent,
-            child: const Text('Checkout',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 20)),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)),
+          Padding(
+            padding: const EdgeInsets.only(top: 27, bottom: 44, right: 44, left: 44),
+            child: MaterialButton(
+              minWidth: 326,
+              height: 54,
+              padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 15),
+              onPressed: () {},
+              color: Colors.deepOrangeAccent,
+              child: const Text('Checkout',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                      fontSize: 20)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+            ),
           ),
         ],
       ),

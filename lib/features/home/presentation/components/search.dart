@@ -11,7 +11,7 @@ class Search extends StatelessWidget {
           const Expanded(
             flex: 5,
             child: SizedBox(
-              height: 40,
+              height: 33,
               child: TextField(
                 decoration: InputDecoration(
                   filled: true,

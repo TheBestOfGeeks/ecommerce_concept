@@ -28,22 +28,24 @@ class CartItem extends StatelessWidget {
                 item.images,
               ),
               width: 100,
+              height: 100,
             ),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(10),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 item.title,
-                style: const TextStyle(color: Colors.white, fontSize: 20),
+                style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500,),
               ),
               Text(
                 '\$${item.price.toDouble()}',
                 style: const TextStyle(
                     color: Colors.deepOrangeAccent,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20),
               ),
             ],
           ),
@@ -64,19 +66,25 @@ class CartItem extends StatelessWidget {
                           width: 15),
                     ),
                     width: 30,
+                    height: 30,
                   ),
                   Text(
                     particularItemCount.toString(),
                     style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 10,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Image(
-                      image: AssetImage('assets/icons/cart_page/plus.png'),
+                  SizedBox(
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Image(
+                        image: AssetImage('assets/icons/cart_page/plus.png'),
+
+                      ),
                     ),
+                    width: 30,
+                    height: 30,
                   ),
                 ],
               ),

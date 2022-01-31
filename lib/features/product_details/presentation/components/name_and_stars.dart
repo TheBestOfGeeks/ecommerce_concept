@@ -31,6 +31,7 @@ class _NameAndStarsState extends State<NameAndStars> {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(widget.product.title,
                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
@@ -47,12 +48,12 @@ class _NameAndStarsState extends State<NameAndStars> {
                         : const AssetImage(
                             'assets/icons/product_details_page/like_button.png'),
                   ),
-                  iconSize: 30),
+                  iconSize: 35),
             ],
           ),
           RatingBar.builder(
               initialRating: widget.product.rating.toDouble(),
-              itemSize: 20,
+              itemSize: 23,
               itemBuilder: (context, _) => const Icon(
                     Icons.star,
                     color: Colors.amber,
