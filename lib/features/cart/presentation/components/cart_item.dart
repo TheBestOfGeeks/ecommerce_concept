@@ -24,11 +24,13 @@ class CartItem extends StatelessWidget {
         children: [
           ClipRRect(
             child: Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(10),
               child: Image.network(
                 item.images,
               ),
-              width: 100,
-              height: 100,
+              width: 90,
+              height: 90,
             ),
             borderRadius: BorderRadius.circular(10),
           ),
