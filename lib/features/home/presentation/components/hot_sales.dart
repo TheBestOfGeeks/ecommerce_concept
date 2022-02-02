@@ -33,8 +33,8 @@ class HotSales extends StatelessWidget {
           ),
           CarouselSlider(
             options: CarouselOptions(
-              height: 180,
-              autoPlay: true,
+              viewportFraction: 0.95,
+              height: 200,
               autoPlayAnimationDuration: Duration(seconds: 5),
               enlargeCenterPage: true,
               autoPlayCurve: Curves.elasticInOut,

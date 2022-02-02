@@ -3,7 +3,7 @@ import 'package:ecommerce_concept/features/cart/data/repository/Cart_products_re
 import 'package:ecommerce_concept/features/cart/domain/repository/cart_products_repository.dart';
 import 'package:ecommerce_concept/features/cart/domain/use_cases/get_cart_items.dart';
 import 'package:ecommerce_concept/features/cart/presentation/bloc/get_cart_items_bloc/cart_items_bloc.dart';
-import 'package:ecommerce_concept/features/home/data/data_sourses/home_remote_data_sourse.dart';
+import 'package:ecommerce_concept/features/home/data/data_sourses/home_remote_data_source.dart';
 import 'package:ecommerce_concept/features/home/data/repository/home_repository_impl.dart';
 import 'package:ecommerce_concept/features/home/domain/repository/home_repository.dart';
 import 'package:ecommerce_concept/features/home/domain/usecases/get_documents.dart';

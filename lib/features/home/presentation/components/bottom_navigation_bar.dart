@@ -38,11 +38,16 @@ class BottomNavigationBarrState extends State<BottomNavigationBarr> {
                 items: [
                   BottomNavyBarItem(
                       icon: Container(
-                        child: const Image(
-                          image: AssetImage(
-                              'assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon1.png'),
-                          height: 10,
-                          width: 10,
+                        child: Row(
+                          children: [
+                            SizedBox(width: 24,),
+                            Image(
+                              image: AssetImage(
+                                  'assets/icons/home_page/bottom_navigation_bar_icons/bottom_icon1.png'),
+                              height: 10,
+                              width: 10,
+                            ),
+                          ],
                         ),
                       ),
                       title: const Text('Explorer',
@@ -62,7 +67,7 @@ class BottomNavigationBarrState extends State<BottomNavigationBarr> {
                             style: TextStyle(
                                 color: Colors.red,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 25)),
+                                fontSize: 20)),
                       ],
                     ),
                     title: const Text('Cart'),

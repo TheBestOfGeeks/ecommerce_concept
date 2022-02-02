@@ -95,7 +95,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           ),
           const Text(
             'Phones',
-            style: const TextStyle(color: Colors.deepOrangeAccent),
+            style: const TextStyle(color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
           ),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -149,7 +149,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           ),
           const Text(
             'Computer',
-            style: TextStyle(color: Colors.deepOrangeAccent),
+            style: TextStyle(color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
           ),
         ],
       );
@@ -172,7 +172,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           const SizedBox(
             height: 5,
           ),
-          const Text('Computer'),
+          const Text('Computer', style: TextStyle(fontWeight: FontWeight.w500),),
         ],
       );
     }
@@ -201,7 +201,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           ),
           const Text(
             'Health',
-            style: TextStyle(color: Colors.deepOrangeAccent),
+            style: TextStyle(color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
           ),
         ],
       );
@@ -224,7 +224,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           const SizedBox(
             height: 5,
           ),
-          const Text('Health'),
+          const Text('Health', style: TextStyle(fontWeight: FontWeight.w500),),
         ],
       );
     }
@@ -253,7 +253,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           ),
           const Text(
             'Books',
-            style: TextStyle(color: Colors.deepOrangeAccent),
+            style: TextStyle(color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
           ),
         ],
       );
@@ -276,7 +276,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           const SizedBox(
             height: 5,
           ),
-          const Text('Books'),
+          const Text('Books', style: TextStyle(fontWeight: FontWeight.w500),),
         ],
       );
     }

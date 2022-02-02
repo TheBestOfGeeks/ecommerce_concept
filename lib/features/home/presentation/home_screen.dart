@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
     context.read<HomeBloc>().add(HomeLoadingEvent());
 
     if (state is HomeLoadedState) {
-      products = state.products;
+      products = state.products;;
       return _HomeLoadedWidget(products);
     } else if (state is HomeErrorState) {
       return Center(child: Text(state.message));

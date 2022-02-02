@@ -22,6 +22,26 @@ class HomeModel extends HomeEntity {
     );
   }
 
+  factory HomeModel.fromDB(List<Map<String, dynamic>> homeEntity,
+      List<BestSellerModel> bestSeller, List<HotSalesModel> hotSales) {
+    return HomeModel(
+      id: homeEntity.first["_id"],
+      hot_sales_path: hotSales,
+      best_seller_path: bestSeller,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "_id": id,
+      "home_store": hot_sales_path == null
+          ? null
+          : List<dynamic>.from(hot_sales_path.map((x) => x)),
+      "best_seller": best_seller_path == null
+          ? null
+          : List<dynamic>.from(best_seller_path.map((x) => x)),
+    };
+  }
 }
 
 class BestSellerModel extends BestSellerEntity {
