@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:ecommerce_concept/features/home/domain/entities/best_seller_entity.dart';
 import 'package:ecommerce_concept/features/home/domain/entities/home_entity.dart';
 import 'package:ecommerce_concept/features/home/domain/entities/hot_sales_entity.dart';
@@ -22,15 +25,6 @@ class HomeModel extends HomeEntity {
     );
   }
 
-  factory HomeModel.fromDB(List<Map<String, dynamic>> homeEntity,
-      List<BestSellerModel> bestSeller, List<HotSalesModel> hotSales) {
-    return HomeModel(
-      id: homeEntity.first["_id"],
-      hot_sales_path: hotSales,
-      best_seller_path: bestSeller,
-    );
-  }
-
   Map<String, dynamic> toJson() {
     return {
       "_id": id,
@@ -52,6 +46,7 @@ class BestSellerModel extends BestSellerEntity {
     required int price_without_discount,
     required int discount_price,
     required String picture,
+    required Uint8List localPicture,
   }) : super(
           id: id,
           isFavorite: isFavorite,
@@ -59,9 +54,12 @@ class BestSellerModel extends BestSellerEntity {
           price_without_discount: price_without_discount,
           discount_price: discount_price,
           picture: picture,
+          localPicture: localPicture,
         );
 
   factory BestSellerModel.fromJson(Map<String, dynamic> json) {
+    var t = Uint8List(500);
+
     return BestSellerModel(
       id: json["id"],
       isFavorite: json["is_favorites"],
@@ -69,6 +67,7 @@ class BestSellerModel extends BestSellerEntity {
       price_without_discount: json["price_without_discount"],
       discount_price: json["discount_price"],
       picture: json["picture"],
+      localPicture: t,
     );
   }
 
@@ -91,23 +90,29 @@ class HotSalesModel extends HotSalesEntity {
       required String title,
       required String subtitle,
       required String picture,
-      required bool isBuy})
+      required bool isBuy,
+      required Uint8List localPicture})
       : super(
             id: id,
             isNew: isNew,
             title: title,
             subtitle: subtitle,
             picture: picture,
-            isBuy: isBuy);
+            isBuy: isBuy,
+            localPicture: localPicture);
 
   factory HotSalesModel.fromJson(Map<String, dynamic> json) {
+    var t = Uint8List(500);
+
     return HotSalesModel(
-        id: json["id"],
-        isNew: json["is_new"] == null ? false : json["is_new"],
-        title: json["title"],
-        subtitle: json["subtitle"],
-        picture: json["picture"],
-        isBuy: json["is_buy"]);
+      id: json["id"],
+      isNew: json["is_new"] == null ? false : json["is_new"],
+      title: json["title"],
+      subtitle: json["subtitle"],
+      picture: json["picture"],
+      isBuy: json["is_buy"],
+      localPicture: t,
+    );
   }
 
   Map<String, dynamic> toJson() {

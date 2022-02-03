@@ -1,5 +1,7 @@
 
 
+import 'dart:typed_data';
+
 import 'package:equatable/equatable.dart';
 
 class BestSellerEntity extends Equatable {
@@ -10,6 +12,7 @@ class BestSellerEntity extends Equatable {
   final int price_without_discount;
   final int discount_price;
   final String picture;
+  final Uint8List  localPicture;
 
   BestSellerEntity(
       {required this.id,
@@ -17,7 +20,8 @@ class BestSellerEntity extends Equatable {
         required this.title,
         required this.price_without_discount,
         required this.discount_price,
-        required this.picture});
+        required this.picture,
+        required this.localPicture,});
 
 
   @override

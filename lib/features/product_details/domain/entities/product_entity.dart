@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 class ProductEntity {
   ProductEntity({
     required this.id,
@@ -12,6 +14,7 @@ class ProductEntity {
     required this.images,
     required this.color,
     required this.capacity,
+    required this.localImages,
   });
 
   final String id;
@@ -26,4 +29,6 @@ class ProductEntity {
   final List<String> images;
   final List<String> color;
   final List<String> capacity;
+  final List<Uint8List> localImages;
 }
+

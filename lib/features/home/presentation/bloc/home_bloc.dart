@@ -14,14 +14,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           (failure) => HomeErrorState(message: _mapFailureToMessage(failure)),
           (products) => HomeLoadedState(products: products)));
     });
+
   }
 }
 
 String _mapFailureToMessage(failure) {
   switch (failure.runtimeType) {
     case ServerFailure:
-      return 'Server Error';
+      return 'Нет сединения с сервером, проверьте, пожалуйста, доступ в интернет';
     default:
-      return 'Unexpected Error';
+      return 'Произошла непредвиденная ошибка, разработчики уведомлены';
   }
 }

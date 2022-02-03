@@ -1,7 +1,4 @@
 
-
-import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce_concept/core/error/exception.dart';
 import 'package:ecommerce_concept/core/error/failure.dart';
@@ -26,38 +23,30 @@ class HomeRepositoryImpl implements HomeRepository {
 
     await HomeDBProvider.instanceDB.database;
 
-
     //Формирование модели HomeModel из локальных таблиц в SQLite
-    Future<List<HomeModel>> _returnLocalData() async {
-      List<HomeModel>  localHomeModel = [];
-      List<Map<String, dynamic>> homeEntity = await HomeDBProvider.instanceDB.getData('home_entity');
-      List<BestSellerModel> bestSeller = await HomeDBProvider.instanceDB.bestSellerFromSQLite();
-      List<HotSalesModel> hotSales = await HomeDBProvider.instanceDB.hotSalesFromSQLite();
-      HomeModel homeModel = HomeModel.fromDB(homeEntity, bestSeller, hotSales);
-      localHomeModel.add(homeModel);
-      return await localHomeModel.toList();
+    Future<List<HomeEntity>> _returnLocalData() async {
+
+      List<HomeEntity> localHomeModel = await HomeDBProvider.instanceDB.HomeEntityFromSQLite();
+      return await localHomeModel;
     }
 
 
     if (await networkInfo.isConnected) {
       try {
         final allProducts = await homeRemoteDataSource.getHomeDocuments(path);
-        String idOfHomeEntityData = await HomeDBProvider.instanceDB.getHomeEntityId();
-         // Проверка на наличие записаных данные в SQLite
-        if (idOfHomeEntityData != allProducts.first.id) {
+        // проверяет пуста ли таблица базы, если да то заполняет её данными из сети
+        int? tableIsEmpty = await HomeDBProvider.instanceDB.tableIsEmpty();
+        if (tableIsEmpty == 0) {
           await HomeDBProvider.instanceDB.saveHomeModelToDB(allProducts.first);
-          await HomeDBProvider.instanceDB.saveBestSellerToDB(allProducts.first.best_seller_path);
-          await HomeDBProvider.instanceDB.saveHotSalesToDB(allProducts.first.hot_sales_path);
         }
-        return Right(_returnLocalData());
+        return  Right(await _returnLocalData());
       } on ServerException  {
         return Left(ServerFailure());
       }
     } else {
       try {
-        return Right(_returnLocalData());
-      } on Exception catch (e) {
-        print('Вот она ошибка $e');
+        return Right(await _returnLocalData());
+      } on  StateError {
         return Left(ServerFailure());
       }
     }

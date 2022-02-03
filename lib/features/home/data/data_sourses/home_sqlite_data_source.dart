@@ -1,7 +1,6 @@
 import 'package:ecommerce_concept/features/home/data/models/home_model.dart';
-import 'package:ecommerce_concept/features/home/domain/entities/best_seller_entity.dart';
 import 'package:ecommerce_concept/features/home/domain/entities/home_entity.dart';
-import 'package:ecommerce_concept/features/home/domain/entities/hot_sales_entity.dart';
+import 'package:http/http.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -24,17 +23,11 @@ class HomeDBProvider {
         version: 1, onCreate: _createDB);
   }
 
-
-  Future<List<Map<String, dynamic>>> getData(String nameOfPath) async {
+  Future<int?> tableIsEmpty() async {
     final db = await _database;
-    return await db!.rawQuery('SELECT * FROM $nameOfPath');
-
-  }
-
-  Future<String> getHomeEntityId() async {
-    final db = await _database;
-    final List<Map<String, dynamic>> query = await db!.query('home_entity');
-    return query[0]['_id'];
+    int? count = Sqflite.firstIntValue(
+        await db!.rawQuery('SELECT COUNT(*) FROM home_entity'));
+    return count;
   }
 
   Future<Database> closeDB() async {
@@ -58,7 +51,8 @@ is_favorites TEXT,
 title TEXT,
 price_without_discount INTEGER,
 discount_price INTEGER,
-picture TEXT
+picture TEXT,
+local_picture BLOB
 )
 ''');
 
@@ -69,7 +63,8 @@ is_new TEXT,
 title TEXT,
 subtitle TEXT,
 picture TEXT,
-is_buy TEXT
+is_buy TEXT,
+local_picture BLOB
 )
 ''');
   }
@@ -87,69 +82,90 @@ is_buy TEXT
       homeEntity.hot_sales_path.toString(),
       homeEntity.best_seller_path.toString()
     ]);
-  }
 
-  saveBestSellerToDB(List<BestSellerEntity> bestSellerEntity) async {
-    final db = await _database;
+    homeEntity.best_seller_path.forEach((element) async {
+// Форматируем картинку в байты для сохранения в БД
+      var image = await get(Uri.parse(element.picture));
+      var imageBytes = image.bodyBytes;
 
-    bestSellerEntity.forEach((element) async {
-      await db!.rawInsert('''
+      await db.rawInsert('''
      INSERT INTO best_seller (
 id,
 is_favorites,
 title,
 price_without_discount,
 discount_price,
-picture
-     ) VALUES (?,?,?,?,?,?)
+picture,
+local_picture
+     ) VALUES (?,?,?,?,?,?,?)
    ''', [
         element.id,
         element.isFavorite,
         element.title,
         element.price_without_discount,
         element.discount_price,
-        element.picture
+        element.picture,
+        await imageBytes
       ]);
     });
-  }
 
-  saveHotSalesToDB(List<HotSalesEntity> hotSalesEntity) async {
-    final db = await _database;
+    homeEntity.hot_sales_path.forEach((element) async {
+      // Форматируем картинку в байты для сохранения в БД
+      var image = await get(Uri.parse(element.picture));
+      var imageBytes = image.bodyBytes;
 
-    hotSalesEntity.forEach((element) async {
-      await db!.rawInsert('''
+      await db.rawInsert('''
      INSERT INTO hot_sales (
 id,
 is_new,
 title,
 subtitle,
 picture,
-is_buy
-    ) VALUES (?,?,?,?,?,?)
+is_buy,
+local_picture
+    ) VALUES (?,?,?,?,?,?,?)
    ''', [
         element.id,
         element.isNew,
         element.title,
         element.subtitle,
         element.picture,
-        element.isBuy
+        element.isBuy,
+        imageBytes
       ]);
     });
+  }
+
+  Future<List<HomeModel>> HomeEntityFromSQLite() async {
+    List<HomeModel> localHomeModel = [];
+
+    final db = await _database;
+    List<Map<String, dynamic>> homeEntity =
+        await db!.rawQuery('SELECT * FROM home_entity');
+
+    HomeModel homeModel = HomeModel(
+        id: homeEntity.first["_id"],
+        best_seller_path: await bestSellerFromSQLite(),
+        hot_sales_path: await hotSalesFromSQLite());
+
+    localHomeModel.add(homeModel);
+
+    return localHomeModel;
   }
 
   Future<List<BestSellerModel>> bestSellerFromSQLite() async {
     final db = await _database;
 
     final List<Map<String, dynamic>> maps = await db!.query('best_seller');
-
     return List.generate(maps.length, (i) {
       return BestSellerModel(
         id: maps[i]['id'],
-        isFavorite: maps[i]['is_favorites'] == 1 ? true : false,
+        isFavorite: maps[i]['is_favorites'] == 1 ? false : true,
         title: maps[i]['title'] ?? '',
         price_without_discount: maps[i]['price_without_discount'] ?? '',
         discount_price: maps[i]['discount_price'] ?? '',
         picture: maps[i]['picture'] ?? '',
+        localPicture: maps[i]['local_picture'] ?? '',
       );
     });
   }
@@ -162,11 +178,12 @@ is_buy
     return List.generate(maps.length, (i) {
       return HotSalesModel(
         id: maps[i]['id'],
-        isNew: maps[i]['is_new'] == 1 ? true : false,
+        isNew: maps[i]['is_new'] == 1 ? false : true,
         title: maps[i]['title'] ?? '',
         subtitle: maps[i]['subtitle'] ?? '',
         picture: maps[i]['picture'] ?? '',
-        isBuy: maps[i]['is_buy'] == 1 ? true : false,
+        isBuy: maps[i]['is_buy'] == 1 ? false : true,
+        localPicture: maps[i]['local_picture'] ?? '',
       );
     });
   }

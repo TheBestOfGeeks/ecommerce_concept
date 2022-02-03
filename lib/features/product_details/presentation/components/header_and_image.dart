@@ -1,10 +1,12 @@
+import 'dart:typed_data';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_concept/features/cart/presentation/CartPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HeaderAndImage extends StatelessWidget {
-  List<String> productImages;
+  List<Uint8List> productImages;
 
   HeaderAndImage({required this.productImages});
 
@@ -64,11 +66,11 @@ class HeaderAndImage extends StatelessWidget {
   }
 }
 
-Widget image(imageUrl) {
+Widget image(image) {
   return Container(
     color: Colors.white,
     child: Image(
-      image: Image.network(imageUrl).image,
+      image: Image.memory(image).image,
     ),
   );
 }

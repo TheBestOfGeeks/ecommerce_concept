@@ -26,9 +26,7 @@ class CartItem extends StatelessWidget {
             child: Container(
               color: Colors.white,
               padding: EdgeInsets.all(10),
-              child: Image.network(
-                item.images,
-              ),
+              child: Image.memory(item.localImage),
               width: 90,
               height: 90,
             ),

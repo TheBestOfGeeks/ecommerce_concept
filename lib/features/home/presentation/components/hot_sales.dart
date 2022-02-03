@@ -1,3 +1,4 @@
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_concept/features/home/domain/entities/hot_sales_entity.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,7 +36,7 @@ class HotSales extends StatelessWidget {
             options: CarouselOptions(
               viewportFraction: 0.95,
               height: 200,
-              autoPlayAnimationDuration: Duration(seconds: 5),
+              autoPlayAnimationDuration: const Duration(seconds: 5),
               enlargeCenterPage: true,
               autoPlayCurve: Curves.elasticInOut,
               disableCenter: true,
@@ -54,13 +55,15 @@ class HotSales extends StatelessWidget {
   }
 
   Widget hotSaleItem(HotSalesEntity item) {
+
+
     return Container(
       decoration: const BoxDecoration(color: Colors.black),
       child: Stack(
         fit: StackFit.expand,
         children: [
           Image(
-            image: Image.network(item.picture).image,
+            image: Image.memory(item.localPicture).image,
             fit: BoxFit.fill,
           ),
           Container(

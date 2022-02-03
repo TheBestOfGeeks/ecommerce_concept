@@ -81,11 +81,11 @@ Widget bestSaleItem(BestSellerEntity itemProduct, BuildContext context) {
             alignment: AlignmentDirectional.topEnd,
             children: [
               Image(
-                  image: Image.network('${itemProduct.picture}').image,
+                  image: Image.memory(itemProduct.localPicture).image,
                   height: 150),
               itemProduct.isFavorite
                   ? Container(
-                      child: Image(
+                      child: const Image(
                         image: AssetImage(
                             'assets/icons/home_page/best_seller_icons/is_favorite.png'),
                         height: 15,

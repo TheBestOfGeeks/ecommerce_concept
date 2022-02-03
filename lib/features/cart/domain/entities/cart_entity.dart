@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:equatable/equatable.dart';
 
 class CartEntity extends Equatable {
@@ -20,16 +22,18 @@ class CartEntity extends Equatable {
 class Basket extends Equatable {
   Basket({
     required this.id,
-    required this.images,
+    required this.image,
     required this.price,
     required this.title,
+    required this.localImage,
   });
 
-  int id;
-  String images;
-  int price;
-  String title;
+  final int id;
+  final String image;
+  final int price;
+  final String title;
+  final Uint8List localImage;
 
   @override
-  List<Object?> get props => [id, images, price, title];
+  List<Object?> get props => [id, image, price, title];
 }

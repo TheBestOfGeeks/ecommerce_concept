@@ -38,7 +38,7 @@ Widget _loadedProductScreen(ProductEntity product) {
             const SizedBox(
               height: 20,
             ),
-            HeaderAndImage(productImages: product.images),
+            HeaderAndImage(productImages: product.localImages),
             const SizedBox(
               height: 10,
             ),

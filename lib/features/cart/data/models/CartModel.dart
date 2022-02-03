@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:ecommerce_concept/features/cart/domain/entities/cart_entity.dart';
 
 class CartModel extends CartEntity {
@@ -25,23 +27,33 @@ class CartModel extends CartEntity {
 }
 
 class BasketModel extends Basket {
-  BasketModel(
-      {required int id,
-      required String images,
-      required int price,
-      required String title})
-      : super(id: id, images: images, price: price, title: title);
+  BasketModel({required int id,
+    required String image,
+    required int price,
+    required String title,
+    required Uint8List localImage})
+      : super(id: id,
+      image: image,
+      price: price,
+      title: title,
+      localImage: localImage);
 
-  factory BasketModel.fromJson(Map<String, dynamic> json) => BasketModel(
+  factory BasketModel.fromJson(Map<String, dynamic> json) {
+
+    Uint8List t = Uint8List(555);
+
+  return  BasketModel(
         id: json["id"],
-        images: json["images"],
+        image: json["images"],
         price: json["price"],
         title: json["title"],
+localImage: t,
       );
+}
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "images": images,
+        "images": image,
         "price": price,
         "title": title,
       };
