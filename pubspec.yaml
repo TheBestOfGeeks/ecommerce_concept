@@ -52,6 +52,10 @@ dependencies:
   # Domain packages
   sqflite: ^2.0.2
   http: ^0.13.4
+  firebase_core: ^1.12.0
+  firebase_messaging: ^11.2.6
+  flutter_local_notifications: ^9.2.0
+  google_maps_flutter: ^2.1.1
 
 dev_dependencies:
   flutter_test:
