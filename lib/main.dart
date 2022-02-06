@@ -4,6 +4,7 @@ import 'package:ecommerce_concept/features/home/presentation/bloc/home_bloc.dart
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/capacity_bloc/capacity_bloc.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/color_bloc/color_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,12 +21,25 @@ void main() async {
   LocalNotificationService.initialize();
   await di.init();
   await Firebase.initializeApp();
-  runApp(MyApp());
+
+  PendingDynamicLinkData? initialLink = await FirebaseDynamicLinks.instance.getInitialLink();
+  runApp(MyApp(initialLink));
 }
 
+FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
+
 class MyApp extends StatelessWidget {
+
+  PendingDynamicLinkData? initialLink;
+
+  MyApp(this.initialLink);
+
+
+
+
   @override
   Widget build(BuildContext context) {
+
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomeBloc>(create: (context) => sl<HomeBloc>()),
@@ -39,8 +53,9 @@ class MyApp extends StatelessWidget {
         home: PageNavigation(),
         initialRoute: "/",
         routes: {
-          "product_detail": (_) => ProductDetailsScreen(),
-          "cart": (_) => CartPage(),
+          "/product": (_) => ProductDetailsScreen(),
+          "/cart": (_) => CartPage(),
+          "/home": (_) => HomeScreen(),
         },
         theme: ThemeData(
           scaffoldBackgroundColor: const Color.fromRGBO(229, 229, 229, 1.0),
@@ -61,6 +76,7 @@ class _PageNavigationState extends State<PageNavigation> {
   void initState() {
     super.initState();
 
+    // Стрим notification когда приложение закрыто
     FirebaseMessaging.instance.getInitialMessage().then((message) {
       if (message != null) {
         final routeFromMessage = message.data["route"];
@@ -71,11 +87,10 @@ class _PageNavigationState extends State<PageNavigation> {
 // Стрим notification когда приложение открыто и активно
     FirebaseMessaging.onMessage.listen((message) {
       if (message != null) {
-        print(message.notification!.body);
-        print(message.notification!.title);
+        LocalNotificationService.display(message);
       }
 
-      LocalNotificationService.display(message);
+
     });
 
 // Стрим notification когда приложение открыто и свёрнуто
@@ -87,6 +102,17 @@ class _PageNavigationState extends State<PageNavigation> {
 
   @override
   Widget build(BuildContext context) {
+
+    final initialLink = context.findAncestorWidgetOfExactType<MyApp>()?.initialLink;
+
+    if (initialLink != null) {
+      final Uri deepLink = initialLink.link;
+      //using the dynamic link to push the user to a different screen
+      Navigator.pushNamed(context, deepLink.path);
+    }
+
     return HomeScreen();
   }
+
+
 }

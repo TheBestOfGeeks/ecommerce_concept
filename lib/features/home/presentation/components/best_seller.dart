@@ -62,10 +62,9 @@ Widget bestSaleItem(BestSellerEntity itemProduct, BuildContext context) {
   return GestureDetector(
     onTap: () {
       if (itemProduct.id == 3333) {
-        context.read<ProductBloc>().add(LoadingProductEvent());
         Navigator.push(
           context,
-          MaterialPageRoute<void>(
+          MaterialPageRoute(
             builder: (BuildContext context) => ProductDetailsScreen(),
           ),
         );

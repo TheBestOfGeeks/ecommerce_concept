@@ -32,7 +32,7 @@ class HeaderAndImage extends StatelessWidget {
               IconButton(
                   padding: EdgeInsets.only(right: 35),
                   onPressed: () {
-                    Navigator.pushNamed(context, "cart");
+                    Navigator.pushNamed(context, "/cart");
                   },
                   icon: const Image(
                     image: AssetImage(

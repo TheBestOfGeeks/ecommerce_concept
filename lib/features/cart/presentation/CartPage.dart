@@ -14,9 +14,10 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     List<CartEntity> products = [];
     final state = context.watch<CartBloc>().state;
-    context.read<CartBloc>().add(LoadingCartEvent());
 
-    if (state is LoadedCartState) {
+    if (state is InitialCartState) {
+      context.read<CartBloc>().add(LoadingCartEvent());
+    } else if (state is LoadedCartState) {
       products = state.cartProducts;
       return _loadedCartScreen(products);
     } else if (state is ErrorCartState) {

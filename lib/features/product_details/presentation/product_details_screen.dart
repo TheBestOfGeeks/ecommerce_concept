@@ -1,5 +1,6 @@
 import 'package:ecommerce_concept/features/product_details/domain/entities/product_entity.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/product_bloc.dart';
+import 'package:ecommerce_concept/features/product_details/presentation/bloc/product_event.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/product_state.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/components/header_and_image.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/components/name_and_stars.dart';
@@ -16,16 +17,15 @@ class ProductDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<ProductBloc>().state;
 
-    context.read<ProductBloc>().productId = '';
-
-    if (state is LoadedProductState) {
+    if (state is InitialProductState) {
+      context.read<ProductBloc>().add(LoadingProductEvent());
+    } else if (state is LoadedProductState) {
       ProductEntity product = state.product.first;
       return _loadedProductScreen(product);
     } else if (state is ErrorProductState) {
       return Center(child: Text(state.errorMessage));
-    } else {
-      return _loadingIndicator();
     }
+    return _loadingIndicator();
   }
 }
 
