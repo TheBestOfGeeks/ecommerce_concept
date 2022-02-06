@@ -14,6 +14,7 @@ import 'features/cart/presentation/CartPage.dart';
 import 'features/home/presentation/home_screen.dart';
 import 'features/product_details/presentation/bloc/product_bloc.dart';
 import 'features/product_details/presentation/product_details_screen.dart';
+import 'l10n/l10n.dart';
 import 'locator_service.dart ';
 
 void main() async {
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         home: PageNavigation(),
+        supportedLocales: L10n.all,
         initialRoute: "/",
         routes: {
           "/product": (_) => ProductDetailsScreen(),

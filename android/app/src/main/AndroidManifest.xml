@@ -60,7 +60,7 @@ package="com.example.ecommerce_concept">
         android:value="2" />
     <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyD-_TO3BtJ7Ziw_jkuddJI11QLGt5Jddt4"
+        android:value=""
         />
 </application>
 
