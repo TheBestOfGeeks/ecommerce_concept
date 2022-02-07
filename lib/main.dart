@@ -39,7 +39,6 @@ class MyApp extends StatelessWidget {
 
 
 
-
   @override
   Widget build(BuildContext context) {
 
@@ -118,11 +117,11 @@ class _PageNavigationState extends State<PageNavigation> {
     if (initialLink != null) {
       final Uri deepLink = initialLink.link;
       //using the dynamic link to push the user to a different screen
-      Navigator.pushNamed(context, deepLink.path);
+      Navigator.popAndPushNamed(context, deepLink.path);
     }
 
     FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
-      Navigator.pushNamed(context, dynamicLinkData.link.path);
+      Navigator.popAndPushNamed(context, dynamicLinkData.link.path);
     }).onError((error) {
       // Handle errors
     });

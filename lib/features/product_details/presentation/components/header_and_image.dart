@@ -45,9 +45,7 @@ class HeaderAndImage extends StatelessWidget {
 
               aspectRatio: 1.1,
               enlargeCenterPage: true,
-              autoPlayCurve: Curves.elasticInOut,
               disableCenter: true,
-              pauseAutoPlayOnTouch: true,
             ),
             items: productImages.map((i) {
               return ClipRRect(

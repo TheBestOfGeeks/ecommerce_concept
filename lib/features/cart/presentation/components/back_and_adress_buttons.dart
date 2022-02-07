@@ -16,7 +16,7 @@ class BackAndAdressButtons extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                  onPressed: () => Navigator.popAndPushNamed(context, '/'),
+                  onPressed: () => Navigator.pop(context),
                   icon: const Image(
                     image: AssetImage(
                         Constants.BACK),
