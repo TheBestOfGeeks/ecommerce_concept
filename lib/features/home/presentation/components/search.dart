@@ -1,14 +1,17 @@
-import 'package:flutter/cupertino.dart';
+import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Search extends StatelessWidget {
+  const Search({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 35, right: 35),
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
             flex: 5,
             child: SizedBox(
               height: 33,
@@ -18,19 +21,19 @@ class Search extends StatelessWidget {
                   focusColor: Colors.white,
                   fillColor: Colors.white,
                   hoverColor: Colors.white,
-                  hintText: 'Search',
-                  hintStyle: TextStyle(fontSize: 10),
-                  prefixIcon: Icon(
+                  hintText: AppLocalizations.of(context)!.search,
+                  hintStyle: const TextStyle(fontSize: 10),
+                  prefixIcon: const Icon(
                     Icons.search,
                     color: Colors.deepOrangeAccent,
                     size: 20,
                   ),
                   //suffixIcon: Icon(Icons.search, color: Colors.deepOrangeAccent, size: 20,),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(30.0)),
                     borderSide: BorderSide(color: Colors.white, width: 4),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(30.0)),
                     borderSide: BorderSide(color: Colors.white, width: 4),
                   ),
@@ -44,8 +47,7 @@ class Search extends StatelessWidget {
                 onPressed: () {},
                 icon: Container(
                     child: const Image(
-                      image:
-                          const AssetImage('assets/icons/home_page/group_icon.png'),
+                      image: AssetImage(Constants.GROUP_ICON),
                       height: 15,
                     ),
                     alignment: Alignment.center,

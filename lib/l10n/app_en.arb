@@ -1,0 +1,36 @@
+{
+  "language": "English",
+  "@language": {
+    "description": "The current Language"
+  },
+  "select_category": "Select Category",
+  "view_all": "view all",
+  "phones": "Phones",
+  "computer": "Computer",
+  "health": "Health",
+  "books": "Books",
+  "search": "Search",
+  "hot_sales": "Hot sales",
+  "see_more": "see more",
+  "buy_now": "Buy now!",
+  "best_seller": "Best Seller",
+  "product_details": "Product Details",
+  "shop": "Shop",
+  "details": "Details",
+  "features": "Features",
+  "select_color_and_capacity": "Select color and capacity",
+  "add_to_cart": "Add to Cart",
+  "add_address": "Add address",
+  "my_art": "My Cart",
+  "total": "Total",
+  "delivery": "Delivery",
+  "checkout": "Checkout",
+  "find_me": "Find me",
+  "filter_options": "Filter options",
+  "done": "Done",
+  "address": "Zihuatanejo, Gro",
+  "brand": "Brand",
+  "price": "Price",
+  "size": "Size"
+
+}

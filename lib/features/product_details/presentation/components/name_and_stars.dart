@@ -1,3 +1,4 @@
+import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:ecommerce_concept/features/product_details/domain/entities/product_entity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -44,9 +45,9 @@ class _NameAndStarsState extends State<NameAndStars> {
                   icon: Image(
                     image: isFavorite
                         ? const AssetImage(
-                            'assets/icons/product_details_page/activated_like_button.png')
+                            Constants.ACTIVATED_LIKE_BUTTON)
                         : const AssetImage(
-                            'assets/icons/product_details_page/like_button.png'),
+                            Constants.LIKE_BUTTON),
                   ),
                   iconSize: 35),
             ],

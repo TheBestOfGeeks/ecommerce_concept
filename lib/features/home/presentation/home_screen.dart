@@ -51,11 +51,11 @@ Widget _HomeLoadedWidget(List<HomeEntity> products) {
             const SizedBox(
               height: 10,
             ),
-            SelectCategory(),
+            const SelectCategory(),
             const SizedBox(
               height: 25,
             ),
-            Search(),
+            const Search(),
             const SizedBox(
               height: 10,
             ),
@@ -86,7 +86,7 @@ Widget errorScreen(String errorMessage) {
     body: Center(
       child: Text(
         errorMessage,
-        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
       ),
     ),
   );

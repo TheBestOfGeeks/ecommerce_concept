@@ -1,5 +1,7 @@
+import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:ecommerce_concept/features/product_details/domain/entities/product_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Properties extends StatelessWidget {
   ProductEntity product;
@@ -23,9 +25,9 @@ class Properties extends StatelessWidget {
                     style: TextButton.styleFrom(
                     ),
                       onPressed: () {},
-                      child: const Text(
-                        'Shop',
-                        style: TextStyle(
+                      child:  Text(
+                        AppLocalizations.of(context)!.shop,
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                             color: Colors.black),
@@ -39,25 +41,25 @@ class Properties extends StatelessWidget {
               ),
               TextButton(
                   onPressed: () {},
-                  child: const Text(
-                    'Details',
-                    style: TextStyle(
+                  child:  Text(
+                    AppLocalizations.of(context)!.details,
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Color.fromRGBO(0, 0, 0, 0.5)),
                   )),
               TextButton(
                   onPressed: () {},
-                  child: const Text(
-                    'Features',
-                    style: TextStyle(
+                  child:  Text(
+    AppLocalizations.of(context)!.features,
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Color.fromRGBO(0, 0, 0, 0.5)),
                   )),
             ],
           ),
-          SizedBox(height: 33,),
+          const SizedBox(height: 33,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -69,7 +71,7 @@ class Properties extends StatelessWidget {
                   height: 28,
                   width: 28,
                   image: AssetImage(
-                      'assets/icons/product_details_page/processor.png'),
+                      Constants.PROCESSOR),
                 ),
                 onPressed: () {},
               ),
@@ -86,7 +88,7 @@ class Properties extends StatelessWidget {
                   height: 28,
                   width: 28,
                   image: AssetImage(
-                      'assets/icons/product_details_page/camera.png'),
+                      Constants.CAMERA),
                 ),
                 onPressed: () {},
               ),
@@ -103,7 +105,7 @@ class Properties extends StatelessWidget {
                   height: 28,
                   width: 28,
                   image: AssetImage(
-                      'assets/icons/product_details_page/memory.png'),
+                      Constants.MEMORY),
                 ),
                 onPressed: () {},
               ),
@@ -120,7 +122,7 @@ class Properties extends StatelessWidget {
                   height: 28,
                   width: 28,
                   image: AssetImage(
-                      'assets/icons/product_details_page/storage.png'),
+                      Constants.STORAGE),
                 ),
                 onPressed: () {},
               ),

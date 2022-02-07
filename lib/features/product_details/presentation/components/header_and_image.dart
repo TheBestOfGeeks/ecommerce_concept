@@ -1,9 +1,8 @@
 import 'dart:typed_data';
-
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ecommerce_concept/features/cart/presentation/CartPage.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HeaderAndImage extends StatelessWidget {
   List<Uint8List> productImages;
@@ -24,10 +23,10 @@ class HeaderAndImage extends StatelessWidget {
                   onPressed: () => Navigator.pop(context),
                   icon: const Image(
                     image: AssetImage(
-                        'assets/icons/product_details_page/back_button.png'),
+                        Constants.BACK),
                   ),
                   iconSize: 65),
-              const Text('Product Details',
+               Text(AppLocalizations.of(context)!.product_details,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               IconButton(
                   padding: EdgeInsets.only(right: 35),
@@ -36,7 +35,7 @@ class HeaderAndImage extends StatelessWidget {
                   },
                   icon: const Image(
                     image: AssetImage(
-                        'assets/icons/product_details_page/bucket_button.png'),
+                        Constants.BUCKET_BUTTON),
                   ),
                   iconSize: 40),
             ],

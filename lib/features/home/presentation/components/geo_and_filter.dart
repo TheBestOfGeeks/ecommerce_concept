@@ -2,6 +2,7 @@ import 'package:ecommerce_concept/features/home/presentation/components/filter_s
 import 'package:ecommerce_concept/features/home/presentation/map_page/geolocation_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class GeoAndFilter extends StatelessWidget {
   @override
@@ -29,7 +30,7 @@ class GeoAndFilter extends StatelessWidget {
                 Icons.location_on_outlined,
                 color: Colors.deepOrangeAccent,
               ),
-              const Text('Zihuatanejo, Gro', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),),
+               Text(AppLocalizations.of(context)!.address, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),),
               IconButton(
                 icon: Icon(Icons.arrow_drop_down_outlined),
                 onPressed: () {

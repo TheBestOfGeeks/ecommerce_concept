@@ -1,3 +1,4 @@
+import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:ecommerce_concept/features/cart/presentation/CartPage.dart';
 import 'package:ecommerce_concept/features/product_details/domain/entities/product_entity.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/capacity_bloc/capacity_bloc.dart';
@@ -8,6 +9,7 @@ import 'package:ecommerce_concept/features/product_details/presentation/bloc/col
 import 'package:ecommerce_concept/features/product_details/presentation/bloc/color_bloc/color_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SelectPropsAndCartButton extends StatelessWidget {
   ProductEntity product;
@@ -30,9 +32,9 @@ class SelectPropsAndCartButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Select color and capacity',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+           Text(
+            AppLocalizations.of(context)!.select_color_and_capacity,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             height: 15,
@@ -74,7 +76,7 @@ class SelectPropsAndCartButton extends StatelessWidget {
                               child: state.color == productColors[index]
                                   ? const Image(
                                       image: AssetImage(
-                                          'assets/icons/product_details_page/check_mark.png'),
+                                          Constants.CHECK_MARK),
                                     )
                                   : Container(),
                             ),
@@ -85,7 +87,7 @@ class SelectPropsAndCartButton extends StatelessWidget {
                 BlocBuilder<CapacityBloc, CapacityState>(
                     builder: (context, state) {
                   return Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     height: 50,
                     width: 150,
                     child: GridView.builder(
@@ -135,8 +137,8 @@ class SelectPropsAndCartButton extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (BuildContext context) => CartPage()));
             },
-            color: Color.fromRGBO(255,110,78, 1),
-            child: Text('Add to Cart   \$${product.price.toDouble()}',
+            color: const Color.fromRGBO(255,110,78, 1),
+            child: Text(AppLocalizations.of(context)!.add_to_cart + "  " + "\$${product.price.toDouble()}",
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,

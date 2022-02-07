@@ -1,8 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class SelectCategory extends StatefulWidget {
+  const SelectCategory({Key? key}) : super(key: key);
+
   @override
   State<SelectCategory> createState() => _SelectCategoryState();
 }
@@ -19,15 +22,15 @@ class _SelectCategoryState extends State<SelectCategory> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Select Category',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
+              Text(
+                AppLocalizations.of(context)!.select_category,
+                style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
               ),
               TextButton(
                   onPressed: () {},
-                  child: const Text(
-                    'view all',
-                    style: TextStyle(color: Colors.deepOrangeAccent),
+                  child: Text(
+                    AppLocalizations.of(context)!.view_all,
+                    style: const TextStyle(color: Colors.deepOrangeAccent),
                   )),
             ],
           ),
@@ -83,7 +86,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image: AssetImage('assets/icons/home_page/phones_icon.png'),
+              image: AssetImage(Constants.PHONE_ICON),
             ),
             decoration: BoxDecoration(
               color: Colors.deepOrangeAccent,
@@ -93,9 +96,10 @@ class _SelectCategoryState extends State<SelectCategory> {
           const SizedBox(
             height: 5,
           ),
-          const Text(
-            'Phones',
-            style: const TextStyle(color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
+           Text(
+            AppLocalizations.of(context)!.phones,
+            style: const TextStyle(
+                color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
           ),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -109,7 +113,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image: AssetImage('assets/icons/home_page/phones_icon.png'),
+              image: AssetImage(Constants.PHONE_ICON),
             ),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -119,7 +123,7 @@ class _SelectCategoryState extends State<SelectCategory> {
           const SizedBox(
             height: 5,
           ),
-          const Text('Phones'),
+           Text(AppLocalizations.of(context)!.phones),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       );
@@ -137,7 +141,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image: AssetImage('assets/icons/home_page/computer_icon.png'),
+              image: AssetImage(Constants.COMPUTER_ICON),
             ),
             decoration: BoxDecoration(
               color: Colors.deepOrangeAccent,
@@ -147,9 +151,10 @@ class _SelectCategoryState extends State<SelectCategory> {
           const SizedBox(
             height: 5,
           ),
-          const Text(
-            'Computer',
-            style: TextStyle(color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
+           Text(
+            AppLocalizations.of(context)!.computer,
+            style: TextStyle(
+                color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
           ),
         ],
       );
@@ -162,7 +167,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image: AssetImage('assets/icons/home_page/computer_icon.png'),
+              image: AssetImage(Constants.COMPUTER_ICON),
             ),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -172,7 +177,10 @@ class _SelectCategoryState extends State<SelectCategory> {
           const SizedBox(
             height: 5,
           ),
-          const Text('Computer', style: TextStyle(fontWeight: FontWeight.w500),),
+           Text(
+            AppLocalizations.of(context)!.computer,
+            style: const TextStyle(fontWeight: FontWeight.w500),
+          ),
         ],
       );
     }
@@ -189,7 +197,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image: AssetImage('assets/icons/home_page/health_icon.png'),
+              image: AssetImage(Constants.HEALTH_ICON),
             ),
             decoration: BoxDecoration(
               color: Colors.deepOrangeAccent,
@@ -199,9 +207,10 @@ class _SelectCategoryState extends State<SelectCategory> {
           const SizedBox(
             height: 5,
           ),
-          const Text(
-            'Health',
-            style: TextStyle(color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
+           Text(
+    AppLocalizations.of(context)!.health,
+            style: const TextStyle(
+                color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
           ),
         ],
       );
@@ -214,7 +223,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image: AssetImage('assets/icons/home_page/health_icon.png'),
+              image: AssetImage(Constants.HEALTH_ICON),
             ),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -224,7 +233,10 @@ class _SelectCategoryState extends State<SelectCategory> {
           const SizedBox(
             height: 5,
           ),
-          const Text('Health', style: TextStyle(fontWeight: FontWeight.w500),),
+           Text(
+            AppLocalizations.of(context)!.health,
+            style: const TextStyle(fontWeight: FontWeight.w500),
+          ),
         ],
       );
     }
@@ -241,7 +253,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image: AssetImage('assets/icons/home_page/books_icon.png'),
+              image: AssetImage(Constants.BOOKS_ICON),
             ),
             decoration: BoxDecoration(
               color: Colors.deepOrangeAccent,
@@ -251,9 +263,10 @@ class _SelectCategoryState extends State<SelectCategory> {
           const SizedBox(
             height: 5,
           ),
-          const Text(
-            'Books',
-            style: TextStyle(color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
+           Text(
+            AppLocalizations.of(context)!.books,
+            style: const TextStyle(
+                color: Colors.deepOrangeAccent, fontWeight: FontWeight.w500),
           ),
         ],
       );
@@ -266,7 +279,7 @@ class _SelectCategoryState extends State<SelectCategory> {
             height: 70,
             child: const Image(
               height: 35,
-              image: AssetImage('assets/icons/home_page/books_icon.png'),
+              image: AssetImage(Constants.BOOKS_ICON),
             ),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -276,7 +289,10 @@ class _SelectCategoryState extends State<SelectCategory> {
           const SizedBox(
             height: 5,
           ),
-          const Text('Books', style: TextStyle(fontWeight: FontWeight.w500),),
+           Text(
+            AppLocalizations.of(context)!.books,
+            style: const TextStyle(fontWeight: FontWeight.w500),
+          ),
         ],
       );
     }

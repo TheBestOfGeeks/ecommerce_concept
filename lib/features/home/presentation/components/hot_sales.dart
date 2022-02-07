@@ -1,8 +1,11 @@
 
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_concept/features/home/domain/entities/hot_sales_entity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:ecommerce_concept/core/image_constants.dart';
 
 class HotSales extends StatelessWidget {
   List<HotSalesEntity> hotSales;
@@ -19,15 +22,15 @@ class HotSales extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Hot sales',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
+                 Text(
+                  AppLocalizations.of(context)!.hot_sales,
+                  style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
                 ),
                 TextButton(
                     onPressed: () {},
-                    child: const Text(
-                      'see more',
-                      style: TextStyle(color: Colors.deepOrangeAccent),
+                    child:  Text(
+                      AppLocalizations.of(context)!.see_more,
+                      style: const TextStyle(color: Colors.deepOrangeAccent),
                     )),
               ],
             ),
@@ -45,7 +48,7 @@ class HotSales extends StatelessWidget {
             items: hotSales.map((i) {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: hotSaleItem(i),
+                child: hotSaleItem(i, context),
               );
             }).toList(),
           ),
@@ -54,7 +57,7 @@ class HotSales extends StatelessWidget {
     );
   }
 
-  Widget hotSaleItem(HotSalesEntity item) {
+  Widget hotSaleItem(HotSalesEntity item, BuildContext context) {
 
 
     return Container(
@@ -75,7 +78,7 @@ class HotSales extends StatelessWidget {
                 item.isNew
                     ? Container(
                         child: const Image(
-                          image: AssetImage('assets/icons/home_page/new.png'),
+                          image: AssetImage(Constants.NEW_ICON),
                           height: 10,
                         ),
                         alignment: Alignment.center,
@@ -105,8 +108,8 @@ class HotSales extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5)),
                   color: Colors.white,
                   onPressed: () {},
-                  child: const Text(
-                    'Buy now!',
+                  child:  Text(
+                    AppLocalizations.of(context)!.buy_now,
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   hoverColor: Colors.white,

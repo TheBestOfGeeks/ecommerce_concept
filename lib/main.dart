@@ -9,6 +9,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ecommerce_concept/locator_service.dart' as di;
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/platform/local_notification_service.dart';
 import 'features/cart/presentation/CartPage.dart';
 import 'features/home/presentation/home_screen.dart';
@@ -16,6 +17,7 @@ import 'features/product_details/presentation/bloc/product_bloc.dart';
 import 'features/product_details/presentation/product_details_screen.dart';
 import 'l10n/l10n.dart';
 import 'locator_service.dart ';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,6 +55,12 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         home: PageNavigation(),
         supportedLocales: L10n.all,
+        localizationsDelegates: const [
+
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
         initialRoute: "/",
         routes: {
           "/product": (_) => ProductDetailsScreen(),
@@ -112,6 +120,13 @@ class _PageNavigationState extends State<PageNavigation> {
       //using the dynamic link to push the user to a different screen
       Navigator.pushNamed(context, deepLink.path);
     }
+
+    FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
+      Navigator.pushNamed(context, dynamicLinkData.link.path);
+    }).onError((error) {
+      // Handle errors
+    });
+
 
     return HomeScreen();
   }

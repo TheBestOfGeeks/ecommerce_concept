@@ -1,3 +1,4 @@
+import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:ecommerce_concept/features/cart/domain/entities/cart_entity.dart';
 import 'package:ecommerce_concept/features/cart/presentation/components/cart_and_check.dart';
 import 'package:flutter/cupertino.dart';
@@ -62,7 +63,7 @@ class CartItem extends StatelessWidget {
                     child: IconButton(
                       onPressed: () {},
                       icon: const Image(
-                          image: AssetImage('assets/icons/cart_page/minus.png'),
+                          image: AssetImage(Constants.MINUS),
                           width: 15),
                     ),
                     width: 30,
@@ -79,7 +80,7 @@ class CartItem extends StatelessWidget {
                     child: IconButton(
                       onPressed: () {},
                       icon: const Image(
-                        image: AssetImage('assets/icons/cart_page/plus.png'),
+                        image: AssetImage(Constants.PLUS),
 
                       ),
                     ),
@@ -93,7 +94,7 @@ class CartItem extends StatelessWidget {
           IconButton(
             onPressed: () {},
             icon: const Image(
-              image: const AssetImage('assets/icons/cart_page/delete.png'),
+              image: const AssetImage(Constants.DELETE),
               width: 20,
             ),
           ),

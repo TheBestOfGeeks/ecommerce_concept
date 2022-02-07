@@ -1,11 +1,13 @@
+import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FilterSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-        initialChildSize: 0.8,
+        initialChildSize: 0.9,
         builder: (BuildContext context, controller) {
           return Container(
             margin: const EdgeInsets.only(bottom: 20),
@@ -23,7 +25,7 @@ class FilterSheet extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                filters(),
+                filters(context),
               ],
             ),
           );
@@ -43,11 +45,11 @@ Widget top(BuildContext context) {
           Navigator.pop(context);
         },
         icon: const Image(
-          image: AssetImage('assets/icons/home_page/back_button.png'),
+          image: AssetImage(Constants.BACK_BUTTON),
         ),
       ),
-      const Text(
-        'Filter options',
+      Text(
+        AppLocalizations.of(context)!.filter_options,
         style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
       ),
       Container(
@@ -55,7 +57,7 @@ Widget top(BuildContext context) {
         child: MaterialButton(
           onPressed: () {},
           color: Colors.deepOrangeAccent,
-          child: const Text('Done', style: TextStyle(fontWeight: FontWeight.bold)),
+          child: Text(AppLocalizations.of(context)!.done, style: TextStyle(fontWeight: FontWeight.bold)),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         ),
       ),
@@ -63,7 +65,7 @@ Widget top(BuildContext context) {
   );
 }
 
-Widget filters() {
+Widget filters(BuildContext context) {
   List brand = ['Samsung', 'Iphone', 'Xiaomi'];
   List price = ['300-1000','1000-3000','3000-10000'];
   List size = ['4.7','5.5','6.7'];
@@ -73,8 +75,8 @@ Widget filters() {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Brand',
+         Text(
+          AppLocalizations.of(context)!.brand,
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
         Container(
@@ -107,8 +109,8 @@ Widget filters() {
 
           ),
         ),
-        const Text(
-          'Price',
+         Text(
+          AppLocalizations.of(context)!.price,
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
         Container(
@@ -137,8 +139,8 @@ Widget filters() {
             onChanged: (v) {},
           ),
         ),
-        const Text(
-          'Size',
+         Text(
+          AppLocalizations.of(context)!.size,
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
         Container(

@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
+
+import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BackAndAdressButtons extends StatelessWidget {
   @override
@@ -17,19 +19,19 @@ class BackAndAdressButtons extends StatelessWidget {
                   onPressed: () => Navigator.popAndPushNamed(context, '/'),
                   icon: const Image(
                     image: AssetImage(
-                        'assets/icons/product_details_page/back_button.png'),
+                        Constants.BACK),
                   ),
                   iconSize: 67),
               Row(
                 children: [
-                  const Text('Add address',
+                   Text(AppLocalizations.of(context)!.add_address,
                       style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                          const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
                   IconButton(
                       onPressed: () {},
                       icon: const Image(
 
-                        image: AssetImage('assets/icons/cart_page/address.png'),
+                        image: AssetImage(Constants.ADDRESS),
                       ),
                       iconSize: 49),
                 ],
@@ -42,7 +44,7 @@ class BackAndAdressButtons extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
-              'My Cart',
+              AppLocalizations.of(context)!.my_art,
               style: TextStyle(
                   fontSize: 35,
                   fontWeight: FontWeight.w700,

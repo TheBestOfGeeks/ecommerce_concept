@@ -1,12 +1,10 @@
 import 'dart:ui';
+import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:ecommerce_concept/features/home/domain/entities/best_seller_entity.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/product_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../product_details/presentation/bloc/product_bloc.dart';
-import '../../../product_details/presentation/bloc/product_event.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BestSeller extends StatelessWidget {
   List<BestSellerEntity> bestseller;
@@ -22,15 +20,15 @@ class BestSeller extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Best Seller',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
+               Text(
+                AppLocalizations.of(context)!.best_seller,
+                style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
               ),
               TextButton(
                   onPressed: () {},
-                  child: const Text(
-                    'see more',
-                    style: TextStyle(color: Colors.deepOrangeAccent),
+                  child:  Text(
+                    AppLocalizations.of(context)!.see_more,
+                    style: const TextStyle(color: Colors.deepOrangeAccent),
                   )),
             ],
           ),
@@ -38,7 +36,7 @@ class BestSeller extends StatelessWidget {
             height: 500,
             child: GridView.count(
               physics:
-                  BouncingScrollPhysics(parent: NeverScrollableScrollPhysics()),
+                  const BouncingScrollPhysics(parent: const NeverScrollableScrollPhysics()),
               crossAxisCount: 2,
               mainAxisSpacing: 14,
               crossAxisSpacing: 14,
@@ -65,14 +63,14 @@ Widget bestSaleItem(BestSellerEntity itemProduct, BuildContext context) {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (BuildContext context) => ProductDetailsScreen(),
+            builder: (BuildContext context) => const ProductDetailsScreen(),
           ),
         );
       }
     },
     child: Container(
-      padding: EdgeInsets.all(5),
-      decoration: BoxDecoration(color: Colors.white),
+      padding: const EdgeInsets.all(5),
+      decoration: const BoxDecoration(color: Colors.white),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -84,9 +82,9 @@ Widget bestSaleItem(BestSellerEntity itemProduct, BuildContext context) {
                   height: 150),
               itemProduct.isFavorite
                   ? Container(
-                      child: const Image(
+                      child:  const Image(
                         image: AssetImage(
-                            'assets/icons/home_page/best_seller_icons/is_favorite.png'),
+                            Constants.IS_FAVORITE),
                         height: 15,
                       ),
                       alignment: Alignment.center,
@@ -97,9 +95,9 @@ Widget bestSaleItem(BestSellerEntity itemProduct, BuildContext context) {
                         borderRadius: BorderRadius.circular(50),
                       ))
                   : Container(
-                      child: Image(
+                      child: const Image(
                         image: AssetImage(
-                            'assets/icons/home_page/best_seller_icons/is_favorite_empty.png'),
+                            Constants.IS_FAVORITE_EMPTY),
                         height: 15,
                       ),
                       alignment: Alignment.center,
@@ -116,24 +114,24 @@ Widget bestSaleItem(BestSellerEntity itemProduct, BuildContext context) {
             children: [
               Row(
                 children: [
-                  Text('\$${itemProduct.price_without_discount}  ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),),
+                  Text('\$${itemProduct.price_without_discount}  ', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),),
                   Text(
                     '\$${itemProduct.discount_price}  ',
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 10,
                         color: Colors.grey,
                         decoration: TextDecoration.lineThrough),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
-                '${itemProduct.title}',
-                style: TextStyle(fontSize: 10),
+                itemProduct.title,
+                style: const TextStyle(fontSize: 10),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
             ],
