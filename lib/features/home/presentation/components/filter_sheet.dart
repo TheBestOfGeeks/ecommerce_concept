@@ -39,7 +39,7 @@ Widget top(BuildContext context) {
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       IconButton(
-        padding: EdgeInsets.only(left: 44),
+        padding: const EdgeInsets.only(left: 44),
         iconSize: 32,
         onPressed: () {
           Navigator.pop(context);
@@ -50,14 +50,14 @@ Widget top(BuildContext context) {
       ),
       Text(
         AppLocalizations.of(context)!.filter_options,
-        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
       ),
       Container(
-        padding: EdgeInsets.only(right: 20),
+        padding: const EdgeInsets.only(right: 20),
         child: MaterialButton(
           onPressed: () {},
           color: Colors.deepOrangeAccent,
-          child: Text(AppLocalizations.of(context)!.done, style: TextStyle(fontWeight: FontWeight.bold)),
+          child: Text(AppLocalizations.of(context)!.done, style: const TextStyle(fontWeight: FontWeight.bold)),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         ),
       ),
@@ -77,7 +77,7 @@ Widget filters(BuildContext context) {
       children: [
          Text(
           AppLocalizations.of(context)!.brand,
-          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
         Container(
           margin: const EdgeInsets.only(bottom: 15, top: 5),
@@ -111,7 +111,7 @@ Widget filters(BuildContext context) {
         ),
          Text(
           AppLocalizations.of(context)!.price,
-          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
         Container(
           margin: const EdgeInsets.only(bottom: 15, top: 5),
@@ -141,7 +141,7 @@ Widget filters(BuildContext context) {
         ),
          Text(
           AppLocalizations.of(context)!.size,
-          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
         Container(
           margin: const EdgeInsets.only(bottom: 15, top: 5),

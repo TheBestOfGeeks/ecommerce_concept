@@ -49,7 +49,7 @@ Widget _loadingIndicator() {
   return const Padding(
     padding: EdgeInsets.all(8),
     child: Center(
-      child: CircularProgressIndicator(),
+      child: CircularProgressIndicator(backgroundColor: Color.fromRGBO(1,0,53, 1),),
     ),
   );
 }

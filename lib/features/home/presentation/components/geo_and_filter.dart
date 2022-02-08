@@ -30,11 +30,17 @@ class GeoAndFilter extends StatelessWidget {
                 Icons.location_on_outlined,
                 color: Colors.deepOrangeAccent,
               ),
-               Text(AppLocalizations.of(context)!.address, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),),
+              TextButton(child: Text(AppLocalizations.of(context)!.address,
+                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: Colors.black),),
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (BuildContext context) => GeolocationPage()));
+                },),
               IconButton(
-                icon: Icon(Icons.arrow_drop_down_outlined),
+                icon: const Icon(Icons.arrow_drop_down_outlined),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) =>  GeolocationPage()));
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (BuildContext context) => GeolocationPage()));
                 },
               ),
             ],

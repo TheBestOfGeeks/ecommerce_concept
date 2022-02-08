@@ -31,7 +31,7 @@ class MapSampleState extends State<GeolocationPage> {
     controller.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
   }
 
-  static const CameraPosition _kGooglePlex = CameraPosition(
+  static const CameraPosition initialPosition = CameraPosition(
     target: LatLng(55.75426297449727, 37.62139697119701),
     zoom: 10,
   );
@@ -39,28 +39,32 @@ class MapSampleState extends State<GeolocationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(
-        markers: {
-          _oneMarker,
-          _twoMarker,
-          _threeMarker,
-          _fourMarker,
-          _fiveMarker,
-          _sixMarker,
-          _sevenMarker,
-          _eightMarker,
-          _nineMarker,
-          _tenMarker,
-        },
-        myLocationButtonEnabled: true,
-        myLocationEnabled: true,
-        zoomGesturesEnabled: true,
-        zoomControlsEnabled: true,
-        mapType: MapType.normal,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
+      body: SafeArea(
+        child: GoogleMap(
+          compassEnabled: true,
+          padding: EdgeInsets.all(20),
+          markers: {
+            _oneMarker,
+            _twoMarker,
+            _threeMarker,
+            _fourMarker,
+            _fiveMarker,
+            _sixMarker,
+            _sevenMarker,
+            _eightMarker,
+            _nineMarker,
+            _tenMarker,
+          },
+          myLocationButtonEnabled: true,
+          myLocationEnabled: true,
+          zoomGesturesEnabled: true,
+          zoomControlsEnabled: true,
+          mapType: MapType.normal,
+          initialCameraPosition: initialPosition,
+          onMapCreated: (GoogleMapController controller) {
+            _controller.complete(controller);
+          },
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(

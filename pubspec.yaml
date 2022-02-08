@@ -68,6 +68,14 @@ dev_dependencies:
     sdk: flutter
   retrofit_generator: ^4.0.1
   build_runner: ^2.1.7
+  flutter_native_splash: ^2.0.2
+
+flutter_native_splash:
+
+  color: "#010035"
+  image: assets/images/splash_screen.png
+  android: true
+  ios: true
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

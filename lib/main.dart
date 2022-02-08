@@ -21,27 +21,24 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  LocalNotificationService.initialize();
   await di.init();
   await Firebase.initializeApp();
+  PendingDynamicLinkData? initialLink =
+      await FirebaseDynamicLinks.instance.getInitialLink();
+  LocalNotificationService.initialize();
 
-  PendingDynamicLinkData? initialLink = await FirebaseDynamicLinks.instance.getInitialLink();
   runApp(MyApp(initialLink));
 }
 
 FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
 
 class MyApp extends StatelessWidget {
-
   PendingDynamicLinkData? initialLink;
 
   MyApp(this.initialLink);
 
-
-
   @override
   Widget build(BuildContext context) {
-
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomeBloc>(create: (context) => sl<HomeBloc>()),
@@ -53,18 +50,25 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         home: PageNavigation(),
-        supportedLocales: L10n.all,
+        //supportedLocales: L10n.all,
         localizationsDelegates: const [
-
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
+        localeResolutionCallback: (locale, supportedLocales) {
+          Locale local = const Locale('en');
+          if (locale != null && locale.languageCode == 'ru') {
+            return locale;
+          } else {
+            return local;
+          }
+        },
         initialRoute: "/",
         routes: {
-          "/product": (_) => ProductDetailsScreen(),
-          "/cart": (_) => CartPage(),
-          "/home": (_) => HomeScreen(),
+          "/product": (BuildContext context) => ProductDetailsScreen(),
+          "/cart": (BuildContext context) => CartPage(),
+          "/home": (BuildContext context) => HomeScreen(),
         },
         theme: ThemeData(
           scaffoldBackgroundColor: const Color.fromRGBO(229, 229, 229, 1.0),
@@ -85,6 +89,21 @@ class _PageNavigationState extends State<PageNavigation> {
   void initState() {
     super.initState();
 
+    final initialLink =
+        context.findAncestorWidgetOfExactType<MyApp>()?.initialLink;
+// Deeplink когда приложение закрыто
+    if (initialLink != null) {
+      final Uri deepLink = initialLink.link;
+      //using the dynamic link to push the user to a different screen
+      Navigator.of(context).pushNamed(deepLink.path);
+    }
+// Deeplink когда приложение свёрнуто
+    FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
+      Navigator.of(context).pushNamed(dynamicLinkData.link.path);
+    }).onError((error) {
+      // Handle errors
+    });
+
     // Стрим notification когда приложение закрыто
     FirebaseMessaging.instance.getInitialMessage().then((message) {
       if (message != null) {
@@ -98,8 +117,6 @@ class _PageNavigationState extends State<PageNavigation> {
       if (message != null) {
         LocalNotificationService.display(message);
       }
-
-
     });
 
 // Стрим notification когда приложение открыто и свёрнуто
@@ -111,24 +128,6 @@ class _PageNavigationState extends State<PageNavigation> {
 
   @override
   Widget build(BuildContext context) {
-
-    final initialLink = context.findAncestorWidgetOfExactType<MyApp>()?.initialLink;
-
-    if (initialLink != null) {
-      final Uri deepLink = initialLink.link;
-      //using the dynamic link to push the user to a different screen
-      Navigator.popAndPushNamed(context, deepLink.path);
-    }
-
-    FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
-      Navigator.popAndPushNamed(context, dynamicLinkData.link.path);
-    }).onError((error) {
-      // Handle errors
-    });
-
-
     return HomeScreen();
   }
-
-
 }
