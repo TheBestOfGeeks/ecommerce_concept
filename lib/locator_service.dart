@@ -17,7 +17,9 @@ import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+import 'core/SQLite/db_connection.dart';
 import 'core/platform/network_info.dart';
+import 'features/cart/data/data_sourses/cart_db_provider.dart';
 import 'features/cart/domain/use_cases/get_cart_products.dart';
 import 'features/cart/presentation/bloc/cart_bloc.dart';
 
@@ -46,11 +48,13 @@ init() {
       () => ProductRemoteDataSourceImpl(client: http.Client()));
   sl.registerLazySingleton<CartProductsRepository>(() =>
       CartProductsRepositoryImpl(
-          cartRemoteDataSource: sl(), networkInfo: sl()));
+          cartRemoteDataSource: sl(), networkInfo: sl(), cartDBProvider: sl()));
   sl.registerLazySingleton<CartRemoteDataSource>(
       () => CartRemoteDataSourceImpl(client: http.Client()));
+  sl.registerLazySingleton<CartDBProvider>(() => CartDBProviderImpl(dbConnection: sl()));
 //core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
+  sl.registerLazySingleton(() => DbConnection(fileDbName: 'cart_local.db'));
 
   //external
   sl.registerLazySingleton(() => InternetConnectionChecker());

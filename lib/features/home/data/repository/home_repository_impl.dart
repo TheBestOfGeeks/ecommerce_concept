@@ -25,7 +25,6 @@ class HomeRepositoryImpl implements HomeRepository {
 
     //Формирование модели HomeModel из локальных таблиц в SQLite
     Future<List<HomeEntity>> _returnLocalData() async {
-
       List<HomeEntity> localHomeModel = await HomeDBProvider.instanceDB.HomeEntityFromSQLite();
       return await localHomeModel;
     }
