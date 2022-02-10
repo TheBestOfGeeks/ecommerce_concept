@@ -24,7 +24,7 @@ class ProductDBProviderImpl extends ProductDBProvider {
     final db = await dbConnection.getDatabase;
 
     await db.execute('''
-CREATE TABLE product_entity (
+CREATE TABLE IF NOT EXISTS product_entity (
 id TEXT PRIMARY KEY,
 cpu TEXT,
 camera TEXT,
@@ -38,25 +38,25 @@ title TEXT
 ''');
 
     await db.execute('''
-      CREATE TABLE images (
+      CREATE TABLE IF NOT EXISTS images (
       image TEXT
       )
     ''');
 
     await db.execute('''
-      CREATE TABLE colors (
+      CREATE TABLE IF NOT EXISTS colors (
       color TEXT
       )
     ''');
 
     await db.execute('''
-      CREATE TABLE capacities (
+      CREATE TABLE IF NOT EXISTS capacities (
       capacity TEXT
       )
     ''');
 
     await db.execute('''
-      CREATE TABLE local_images (
+      CREATE TABLE IF NOT EXISTS local_images (
       image BLOB
       )
     ''');

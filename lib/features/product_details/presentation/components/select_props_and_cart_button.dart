@@ -12,12 +12,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SelectPropsAndCartButton extends StatelessWidget {
-  ProductEntity product;
+  final ProductEntity product;
 
   SelectPropsAndCartButton({required this.product});
 
-  int? activeColorPicked;
-  String? selectedCapacity;
 
   @override
   Widget build(BuildContext context) {

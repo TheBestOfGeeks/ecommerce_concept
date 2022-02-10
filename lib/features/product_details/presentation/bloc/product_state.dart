@@ -13,7 +13,7 @@ class InitialProductState extends ProductState {}
 class LoadingProductState extends ProductState {}
 
 class LoadedProductState extends ProductState {
-  List<ProductEntity> product;
+  final List<ProductEntity> product;
 
   LoadedProductState({required this.product});
 
@@ -22,7 +22,7 @@ class LoadedProductState extends ProductState {
 }
 
 class ErrorProductState extends ProductState {
-  String errorMessage;
+  final String errorMessage;
 
   ErrorProductState({required this.errorMessage});
 

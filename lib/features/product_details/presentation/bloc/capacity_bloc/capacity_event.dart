@@ -8,7 +8,7 @@ abstract class CapacityEvent extends Equatable {}
 
 class ChoseCapacityEvent extends CapacityEvent {
 
-  String capacity;
+  final String capacity;
 
   ChoseCapacityEvent({required this.capacity});
 

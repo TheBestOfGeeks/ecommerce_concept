@@ -1,12 +1,11 @@
 import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:ecommerce_concept/features/cart/domain/entities/cart_entity.dart';
 import 'package:ecommerce_concept/features/cart/presentation/components/cart_and_check.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CartItem extends StatelessWidget {
-  int itemIndex;
-  int particularItemCount = 1;
+  final int itemIndex;
+  final int particularItemCount = 1;
 
   CartItem({required this.itemIndex});
 

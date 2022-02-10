@@ -24,7 +24,7 @@ class LoadedCartState extends CartState {
 }
 
 class ErrorCartState extends CartState {
-  String errorMessage;
+ final String errorMessage;
 
   ErrorCartState(this.errorMessage);
 

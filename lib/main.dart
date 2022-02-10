@@ -15,7 +15,6 @@ import 'features/cart/presentation/CartPage.dart';
 import 'features/home/presentation/home_screen.dart';
 import 'features/product_details/presentation/bloc/product_bloc.dart';
 import 'features/product_details/presentation/product_details_screen.dart';
-import 'l10n/l10n.dart';
 import 'locator_service.dart ';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -33,7 +32,7 @@ void main() async {
 FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
 
 class MyApp extends StatelessWidget {
-  PendingDynamicLinkData? initialLink;
+  final PendingDynamicLinkData? initialLink;
 
   MyApp(this.initialLink);
 
@@ -114,9 +113,8 @@ class _PageNavigationState extends State<PageNavigation> {
 
 // Стрим notification когда приложение открыто и активно
     FirebaseMessaging.onMessage.listen((message) {
-      if (message != null) {
         LocalNotificationService.display(message);
-      }
+
     });
 
 // Стрим notification когда приложение открыто и свёрнуто

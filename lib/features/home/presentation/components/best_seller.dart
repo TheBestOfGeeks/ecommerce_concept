@@ -1,13 +1,11 @@
-import 'dart:ui';
 import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:ecommerce_concept/features/home/domain/entities/best_seller_entity.dart';
 import 'package:ecommerce_concept/features/product_details/presentation/product_details_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BestSeller extends StatelessWidget {
-  List<BestSellerEntity> bestseller;
+  final List<BestSellerEntity> bestseller;
 
   BestSeller(this.bestseller);
 

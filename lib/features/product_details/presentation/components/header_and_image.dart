@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HeaderAndImage extends StatelessWidget {
-  List<Uint8List> productImages;
+  final List<Uint8List> productImages;
 
   HeaderAndImage({required this.productImages});
 

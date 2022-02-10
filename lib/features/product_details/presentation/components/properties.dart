@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Properties extends StatelessWidget {
-  ProductEntity product;
+  final ProductEntity product;
 
   Properties({Key? key, required this.product}) : super(key: key);
 

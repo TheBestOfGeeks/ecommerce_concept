@@ -1,13 +1,12 @@
 import 'package:ecommerce_concept/features/cart/domain/entities/cart_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'cart_item.dart';
 
 class CartAndCheck extends StatelessWidget {
-  List<CartEntity> cartProducts;
+  final List<CartEntity> cartProducts;
 
   CartAndCheck({required this.cartProducts});
 

@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:ecommerce_concept/features/home/domain/entities/best_seller_entity.dart';
@@ -28,12 +27,8 @@ class HomeModel extends HomeEntity {
   Map<String, dynamic> toJson() {
     return {
       "_id": id,
-      "home_store": hot_sales_path == null
-          ? null
-          : List<dynamic>.from(hot_sales_path.map((x) => x)),
-      "best_seller": best_seller_path == null
-          ? null
-          : List<dynamic>.from(best_seller_path.map((x) => x)),
+      "home_store": hot_sales_path == List<dynamic>.from(hot_sales_path.map((x) => x)),
+      "best_seller": best_seller_path == List<dynamic>.from(best_seller_path.map((x) => x)),
     };
   }
 }

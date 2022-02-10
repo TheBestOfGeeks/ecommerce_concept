@@ -7,7 +7,7 @@ abstract class ColorEvent extends Equatable {}
 
 class ChoseColorEvent extends ColorEvent {
 
-  String color;
+  final String color;
 
   ChoseColorEvent({required this.color});
 

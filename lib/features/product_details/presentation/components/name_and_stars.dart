@@ -1,11 +1,10 @@
 import 'package:ecommerce_concept/core/image_constants.dart';
 import 'package:ecommerce_concept/features/product_details/domain/entities/product_entity.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class NameAndStars extends StatefulWidget {
-  ProductEntity product;
+  final ProductEntity product;
 
   NameAndStars({Key? key, required this.product}) : super(key: key);
 

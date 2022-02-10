@@ -65,10 +65,8 @@ class ProductModel extends ProductEntity {
         "ssd": ssd,
         "title": title,
         "images":
-        images == null ? null : List<dynamic>.from(images.map((x) => x)),
-        "color": color == null ? null : List<dynamic>.from(color.map((x) => x)),
-        "capacity": capacity == null
-            ? null
-            : List<dynamic>.from(capacity.map((x) => x)),
+        images ==  List<dynamic>.from(images.map((x) => x)),
+        "color": color ==  List<dynamic>.from(color.map((x) => x)),
+        "capacity": capacity ==  List<dynamic>.from(capacity.map((x) => x)),
       };
 }

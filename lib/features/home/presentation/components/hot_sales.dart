@@ -2,13 +2,12 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_concept/features/home/domain/entities/hot_sales_entity.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:ecommerce_concept/core/image_constants.dart';
 
 class HotSales extends StatelessWidget {
-  List<HotSalesEntity> hotSales;
+  final List<HotSalesEntity> hotSales;
 
   HotSales(this.hotSales);
 

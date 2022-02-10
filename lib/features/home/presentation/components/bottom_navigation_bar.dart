@@ -1,9 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:ecommerce_concept/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:ecommerce_concept/features/cart/presentation/bloc/get_cart_items_bloc/cart_items_bloc.dart';
 import 'package:ecommerce_concept/features/cart/presentation/bloc/get_cart_items_bloc/cart_items_event.dart';
 import 'package:ecommerce_concept/features/cart/presentation/bloc/get_cart_items_bloc/cart_items_state.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
