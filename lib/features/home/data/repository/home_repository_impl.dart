@@ -4,7 +4,7 @@ import 'package:ecommerce_concept/core/error/exception.dart';
 import 'package:ecommerce_concept/core/error/failure.dart';
 import 'package:ecommerce_concept/core/platform/network_info.dart';
 import 'package:ecommerce_concept/features/home/data/data_sourses/home_remote_data_source.dart';
-import 'package:ecommerce_concept/features/home/data/data_sourses/home_sqlite_data_source.dart';
+import 'package:ecommerce_concept/features/home/data/data_sourses/home_db_provider.dart';
 import 'package:ecommerce_concept/features/home/data/models/home_model.dart';
 import 'package:ecommerce_concept/features/home/domain/entities/home_entity.dart';
 import 'package:ecommerce_concept/features/home/domain/repository/home_repository.dart';
@@ -12,20 +12,21 @@ import 'package:ecommerce_concept/features/home/domain/repository/home_repositor
 class HomeRepositoryImpl implements HomeRepository {
 
   final HomeRemoteDataSource homeRemoteDataSource;
+  final HomeDBProvider homeDBProvider;
   final NetworkInfo networkInfo;
 
 
-  HomeRepositoryImpl({required this.homeRemoteDataSource,required this.networkInfo});
+  HomeRepositoryImpl({required this.homeRemoteDataSource,required this.networkInfo, required this.homeDBProvider});
 
   @override
   Future<Either<Failure, List<HomeEntity>>> getAllDocuments(String path) async {
 
 
-    await HomeDBProvider.instanceDB.database;
+    await homeDBProvider.createTable();
 
-    //Формирование модели HomeModel из локальных таблиц в SQLite
+    //Формирование модели HomeModel из локальных таблиц в local_db
     Future<List<HomeEntity>> _returnLocalData() async {
-      List<HomeEntity> localHomeModel = await HomeDBProvider.instanceDB.HomeEntityFromSQLite();
+      List<HomeEntity> localHomeModel = await homeDBProvider.getFromDB();
       return await localHomeModel;
     }
 
@@ -34,9 +35,9 @@ class HomeRepositoryImpl implements HomeRepository {
       try {
         final allProducts = await homeRemoteDataSource.getHomeDocuments(path);
         // проверяет пуста ли таблица базы, если да то заполняет её данными из сети
-        int? tableIsEmpty = await HomeDBProvider.instanceDB.tableIsEmpty();
+        int? tableIsEmpty = await homeDBProvider.tableIsExist();
         if (tableIsEmpty == 0) {
-          await HomeDBProvider.instanceDB.saveHomeModelToDB(allProducts.first);
+          await homeDBProvider.setToDB(allProducts.first);
         }
         return  Right(await _returnLocalData());
       } on ServerException  {

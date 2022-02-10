@@ -1,4 +1,5 @@
-import 'package:ecommerce_concept/core/SQLite/db_connection.dart';
+
+import 'package:ecommerce_concept/core/local_db/db_connection.dart';
 import 'package:ecommerce_concept/features/cart/data/models/CartModel.dart';
 import 'package:http/http.dart';
 import 'package:sqflite/sqflite.dart';
@@ -48,7 +49,6 @@ total INTEGER
 
     final List<Map<String, dynamic>> maps = await db.query('cart_entity');
     final List<Map<String, dynamic>> basket = await db.query('basket');
-
     return List.generate(maps.length, (i) {
       return CartModel(
           id: maps[i]['id'],
@@ -64,6 +64,7 @@ total INTEGER
             );
           }));
     });
+
   }
 
   @override

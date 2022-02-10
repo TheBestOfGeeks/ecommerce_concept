@@ -2,11 +2,10 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 class DbConnection {
-  String fileDbName;
 
-  DbConnection({required this.fileDbName});
+  DbConnection();
 
-  static Database? _database;
+   Database? _database;
 
   Future<Database> get getDatabase async {
     if (_database != null) {
@@ -19,7 +18,7 @@ class DbConnection {
 
   Future<Database> _initDB() async {
     return await openDatabase(
-      join(await getDatabasesPath(), fileDbName),
+      join(await getDatabasesPath(), 'local.db'),
       version: 1,
     );
   }

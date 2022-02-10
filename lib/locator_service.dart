@@ -3,6 +3,7 @@ import 'package:ecommerce_concept/features/cart/data/repository/Cart_products_re
 import 'package:ecommerce_concept/features/cart/domain/repository/cart_products_repository.dart';
 import 'package:ecommerce_concept/features/cart/domain/use_cases/get_cart_items.dart';
 import 'package:ecommerce_concept/features/cart/presentation/bloc/get_cart_items_bloc/cart_items_bloc.dart';
+import 'package:ecommerce_concept/features/home/data/data_sourses/home_db_provider.dart';
 import 'package:ecommerce_concept/features/home/data/data_sourses/home_remote_data_source.dart';
 import 'package:ecommerce_concept/features/home/data/repository/home_repository_impl.dart';
 import 'package:ecommerce_concept/features/home/domain/repository/home_repository.dart';
@@ -16,12 +17,12 @@ import 'package:ecommerce_concept/features/product_details/presentation/bloc/pro
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-
-import 'core/SQLite/db_connection.dart';
+import 'core/local_db/db_connection.dart';
 import 'core/platform/network_info.dart';
 import 'features/cart/data/data_sourses/cart_db_provider.dart';
 import 'features/cart/domain/use_cases/get_cart_products.dart';
 import 'features/cart/presentation/bloc/cart_bloc.dart';
+import 'features/product_details/data/data_sources/product_db_provider.dart';
 
 final sl = GetIt.instance;
 
@@ -30,7 +31,7 @@ init() {
   sl.registerFactory(() => HomeBloc(getDocuments: sl()));
   sl.registerFactory(() => ProductBloc(productDetails: sl()));
   sl.registerFactory(() => CartBloc(getCartProducts: sl()));
-  sl.registerFactory(() => CartItemsBloc(getCartItems:   sl()));
+  sl.registerFactory(() => CartItemsBloc(getCartItems: sl()));
 
   // UseCases
   sl.registerLazySingleton(() => GetDocuments(homeRepository: sl()));
@@ -38,12 +39,12 @@ init() {
   sl.registerLazySingleton(() => GetCartProducts(cartProductsRepository: sl()));
   sl.registerLazySingleton(() => GetCartItems(cartProductsRepository: sl()));
   //Repository
-  sl.registerLazySingleton<HomeRepository>(
-      () => HomeRepositoryImpl(homeRemoteDataSource: sl(), networkInfo: sl()));
+  sl.registerLazySingleton<HomeRepository>(() => HomeRepositoryImpl(
+      homeRemoteDataSource: sl(), networkInfo: sl(), homeDBProvider: sl()));
   sl.registerLazySingleton<HomeRemoteDataSource>(
       () => HomeRemoteDataSourceImpl(client: http.Client()));
   sl.registerLazySingleton<ProductRepository>(() =>
-      ProductRepositoryImpl(productRemoteDataSource: sl(), networkInfo: sl()));
+      ProductRepositoryImpl(productRemoteDataSource: sl(), networkInfo: sl(), productDBProvider: sl()));
   sl.registerLazySingleton<ProductRemoteDataSource>(
       () => ProductRemoteDataSourceImpl(client: http.Client()));
   sl.registerLazySingleton<CartProductsRepository>(() =>
@@ -51,10 +52,16 @@ init() {
           cartRemoteDataSource: sl(), networkInfo: sl(), cartDBProvider: sl()));
   sl.registerLazySingleton<CartRemoteDataSource>(
       () => CartRemoteDataSourceImpl(client: http.Client()));
-  sl.registerLazySingleton<CartDBProvider>(() => CartDBProviderImpl(dbConnection: sl()));
-//core
+  //data
+  sl.registerLazySingleton<CartDBProvider>(
+      () => CartDBProviderImpl(dbConnection: sl()));
+  sl.registerLazySingleton<HomeDBProvider>(
+      () => HomeDBProviderImpl(dbConnection: sl()));
+  sl.registerLazySingleton<ProductDBProvider>(
+          () => ProductDBProviderImpl(dbConnection: sl()));
+  //core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
-  sl.registerLazySingleton(() => DbConnection(fileDbName: 'cart_local.db'));
+  sl.registerLazySingleton(() => DbConnection());
 
   //external
   sl.registerLazySingleton(() => InternetConnectionChecker());

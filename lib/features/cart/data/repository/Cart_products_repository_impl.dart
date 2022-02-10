@@ -16,7 +16,7 @@ class CartProductsRepositoryImpl implements CartProductsRepository {
       required this.networkInfo,
       required this.cartDBProvider});
 
-  //Формирование модели ProductModel из локальных таблиц в SQLite
+  //Формирование модели ProductModel из локальных таблиц в local_db
   Future<List<CartEntity>> _returnLocalData() async {
     List<CartEntity> localProductModel = await cartDBProvider.getFromDB();
     return localProductModel;
