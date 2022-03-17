@@ -1,16 +1,19 @@
 # ecommerce_concept
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Тестовое демо приложение.
+UI написан с фигмы - https://www.figma.com/file/KqZcU5m3GMxAHwgFkvCONz/ECOMMERCE?node-id=2%3A845
+Приложение написано по принципу чистой архитектуры.
+Данные тянутся по http с фекового API.
+В приложении реализованы следующие фичи:
+SQL - При первом входе в приложение мы данные грузим из бэка и записываем в БД, при втором входе данные берем уже из БД
+Cвой DAO класс для каждого экрана
+Через FireBase реализованы Push Notifications и Deep link
+Google Map и Permissions
+На главном экране при нажатии на "Zihuatanejo" открывается новый экран с картой
+На этом экране лишь карта и кнопка "Найти меня"
+На карту высыпано 10 рандомных пинов
+При нажатии на "Найти меня" сначала показывается системное окно с разрешением на геолокацию.
+Мультиязычность и ресурсы
+Реализовано 2 варианта перевода (русский/english) всех текстов, которые не от сервера.
+Если в настройках смартфона базовый язык русский, то весь интерфейс на русском.
+Если любой другой язык, то язык приложения английский.
