@@ -1,7 +1,7 @@
 # ecommerce_concept
 
 Тестовое демо приложение.
-UI написан с фигмы - https://www.figma.com/file/KqZcU5m3GMxAHwgFkvCONz/ECOMMERCE?node-id=2%3A845
+UI написан с фигмы - https://www.figma.com/file/KqZcU5m3GMxAHwgFkvCONz/ECOMMERCE?node-id=2%3A845 \n
 Приложение написано по принципу чистой архитектуры.
 Данные тянутся по http с фекового API.
 В приложении реализованы следующие фичи:
