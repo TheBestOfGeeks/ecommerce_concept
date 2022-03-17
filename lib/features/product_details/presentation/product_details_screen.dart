@@ -29,23 +29,46 @@ class ProductDetailsScreen extends StatelessWidget {
   }
 }
 
+
+
+class PassProductInherit extends InheritedWidget {
+
+  final ProductEntity productEntity;
+
+  PassProductInherit({required Widget child, required this.productEntity}) : super(child: child);
+
+  @override
+  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
+    return true;
+  }
+
+  static PassProductInherit? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<PassProductInherit>();
+  }
+
+}
+
+
 Widget _loadedProductScreen(ProductEntity product) {
-  return Scaffold(
-    body: SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            HeaderAndImage(productImages: product.localImages),
-            const SizedBox(
-              height: 10,
-            ),
-            NameAndStars(product: product),
-            Properties(product: product),
-            SelectPropsAndCartButton(product: product),
-          ],
+  return PassProductInherit(
+    productEntity: product,
+    child: Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              HeaderAndImage(productImages: product.localImages),
+              const SizedBox(
+                height: 10,
+              ),
+              NameAndStars(product: product),
+              Properties(product: product),
+              SelectPropsAndCartButton(product: product),
+            ],
+          ),
         ),
       ),
     ),
