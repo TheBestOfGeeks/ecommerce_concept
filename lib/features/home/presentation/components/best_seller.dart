@@ -3,6 +3,7 @@ import 'package:ecommerce_concept/features/home/domain/entities/best_seller_enti
 import 'package:ecommerce_concept/features/product_details/presentation/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+//зменения
 
 class BestSeller extends StatelessWidget {
   final List<BestSellerEntity> bestseller;

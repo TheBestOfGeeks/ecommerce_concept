@@ -39,8 +39,7 @@ init() {
   sl.registerLazySingleton(() => GetCartProducts(cartProductsRepository: sl()));
   sl.registerLazySingleton(() => GetCartItems(cartProductsRepository: sl()));
   //Repository
-  sl.registerLazySingleton<HomeRepository>(() => HomeRepositoryImpl(
-      homeRemoteDataSource: sl(), networkInfo: sl(), homeDBProvider: sl()));
+  sl.registerLazySingleton<HomeRepository>(() => HomeRepositoryImpl(homeRemoteDataSource: sl(), networkInfo: sl(), homeDBProvider: sl()));
   sl.registerLazySingleton<HomeRemoteDataSource>(
       () => HomeRemoteDataSourceImpl(client: http.Client()));
   sl.registerLazySingleton<ProductRepository>(() =>
